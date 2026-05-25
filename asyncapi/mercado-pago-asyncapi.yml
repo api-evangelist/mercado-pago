@@ -1,0 +1,152 @@
+asyncapi: 3.0.0
+info:
+  title: Mercado Pago Webhooks (IPN / Webhooks v2)
+  version: "1.0.0"
+  description: |
+    Mercado Pago webhook notifications for payments, refunds, chargebacks,
+    merchant orders, subscriptions, and POS events. Webhook payloads include
+    `x-signature` and `x-request-id` headers — receivers MUST verify the HMAC
+    signature against their merchant secret before processing.
+  contact:
+    name: Mercado Pago Developers
+    url: https://www.mercadopago.com.br/developers/en/docs/your-integrations/notifications/webhooks
+servers:
+  merchant:
+    host: customer-configured.example.com
+    protocol: https
+    description: Merchant-configured webhook receiver endpoint.
+channels:
+  payment:
+    address: /webhooks/mercadopago
+    messages:
+      paymentEvent:
+        $ref: '#/components/messages/PaymentEvent'
+    description: Payment lifecycle events.
+  merchantOrder:
+    address: /webhooks/mercadopago
+    messages:
+      merchantOrderEvent:
+        $ref: '#/components/messages/MerchantOrderEvent'
+    description: Merchant order lifecycle events.
+  subscription:
+    address: /webhooks/mercadopago
+    messages:
+      subscriptionEvent:
+        $ref: '#/components/messages/SubscriptionEvent'
+    description: Preapproval subscription lifecycle events.
+  chargeback:
+    address: /webhooks/mercadopago
+    messages:
+      chargebackEvent:
+        $ref: '#/components/messages/ChargebackEvent'
+    description: Chargeback / dispute events.
+  point:
+    address: /webhooks/mercadopago
+    messages:
+      pointEvent:
+        $ref: '#/components/messages/PointEvent'
+    description: Point-of-sale integration events.
+operations:
+  receivePayment:
+    action: receive
+    channel:
+      $ref: '#/channels/payment'
+  receiveMerchantOrder:
+    action: receive
+    channel:
+      $ref: '#/channels/merchantOrder'
+  receiveSubscription:
+    action: receive
+    channel:
+      $ref: '#/channels/subscription'
+  receiveChargeback:
+    action: receive
+    channel:
+      $ref: '#/channels/chargeback'
+  receivePoint:
+    action: receive
+    channel:
+      $ref: '#/channels/point'
+components:
+  messages:
+    PaymentEvent:
+      name: PaymentEvent
+      title: Payment Event
+      summary: Emitted on payment create / update / refund / chargeback transitions.
+      contentType: application/json
+      headers:
+        type: object
+        properties:
+          x-signature:
+            type: string
+            description: HMAC-SHA256 signature over the manifest + body.
+          x-request-id:
+            type: string
+            description: Unique request id used in the signed manifest.
+      payload:
+        $ref: '#/components/schemas/Notification'
+    MerchantOrderEvent:
+      name: MerchantOrderEvent
+      title: Merchant Order Event
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/Notification'
+    SubscriptionEvent:
+      name: SubscriptionEvent
+      title: Subscription Event
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/Notification'
+    ChargebackEvent:
+      name: ChargebackEvent
+      title: Chargeback Event
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/Notification'
+    PointEvent:
+      name: PointEvent
+      title: Point Event
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/Notification'
+  schemas:
+    Notification:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique notification id.
+        live_mode:
+          type: boolean
+        type:
+          type: string
+          enum:
+            - payment
+            - merchant_order
+            - subscription_preapproval
+            - subscription_authorized_payment
+            - point_integration_wh
+            - chargebacks
+            - claims
+        date_created:
+          type: string
+          format: date-time
+        application_id:
+          type: integer
+        user_id:
+          type: integer
+        version:
+          type: integer
+        api_version:
+          type: string
+        action:
+          type: string
+          examples:
+            - payment.created
+            - payment.updated
+        data:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Identifier of the affected resource (payment, order, preapproval, etc.).

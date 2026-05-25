@@ -1,0 +1,105 @@
+aid: mercado-pago
+name: Mercado Pago
+reviewed: '2026-05-25'
+reviewer: Kin Lane
+tier: 1
+type: company
+summary: >-
+  Mercado Pago is a tier-1 Latin American fintech and the payments arm of
+  Mercado Libre. Its developer surface is mature and broad: a comprehensive
+  REST API covering payments (cards, PIX, boleto, OXXO, SPEI, PSE, account
+  money), Checkout Pro / Bricks / API, the new unified Orders API,
+  preapproval Subscriptions, Payment Links, customers and tokenised cards,
+  Point (POS) and QR for in-person, chargebacks, claims, and settlement
+  reports. Backed by official SDKs across nine languages (Node, Python,
+  PHP, Ruby, Java, .NET, Go, iOS, Android), a Mercado Pago CLI distributed
+  via Homebrew, a Model Context Protocol server for agent-driven payments,
+  an n8n node, and merchant plugins for WooCommerce, VTEX, Tiendanube,
+  PrestaShop, Salesforce, Wix, and Magento. Webhook deliveries are signed.
+  Regional portals localise docs and pricing across Brazil, Argentina,
+  Mexico, Chile, Colombia, Peru, and Uruguay.
+
+strengths:
+  - Deep REST API surface across pay-in, checkout, subscriptions, POS, QR, and post-sale
+  - Comprehensive multi-language SDK fleet (9 official languages)
+  - Mercado Pago CLI for sandbox / event triggering
+  - Official MCP server enabling agent-driven payment workflows
+  - Signed webhook delivery (x-signature + x-request-id)
+  - Strong LATAM payment-method coverage (PIX, Boleto, OXXO, SPEI, PSE)
+  - Regional developer portals per market with localised docs and pricing
+  - First-party e-commerce plugins for WooCommerce, VTEX, Tiendanube
+  - Discord developer community and dedicated status page
+  - Unified Orders API consolidates payments + transactions + captures + refunds
+  - Sandbox environment with first-class test fixtures (test_user)
+
+gaps:
+  - No public, downloadable OpenAPI/Swagger artifact at the provider portal
+  - No published numeric rate-limit policy (limits are per-token, operationally observed)
+  - Pricing is market- and contract-specific; no single global rate card
+  - Marketplace OAuth model is documented but less polished than Stripe Connect equivalents
+  - SDK release cadence varies by language (Node/Python lead; Ruby/Go/iOS lag)
+  - Reports API is functional but export-only — no streaming reconciliation
+
+api_groups:
+  - mercado-pago:payments
+  - mercado-pago:checkout-pro
+  - mercado-pago:checkout-bricks
+  - mercado-pago:checkout-api
+  - mercado-pago:orders
+  - mercado-pago:subscriptions
+  - mercado-pago:payment-links
+  - mercado-pago:customers-cards
+  - mercado-pago:merchant-orders
+  - mercado-pago:point
+  - mercado-pago:qr
+  - mercado-pago:chargebacks
+  - mercado-pago:claims
+  - mercado-pago:reports
+  - mercado-pago:oauth
+  - mercado-pago:webhooks
+
+properties_covered:
+  - APIReference
+  - Documentation
+  - Portal
+  - GettingStarted
+  - SDK
+  - Repository
+  - CLI
+  - MCP
+  - Plugin
+  - GitHubOrganization
+  - HomebrewTap
+  - Discord
+  - LinkedIn
+  - Status
+  - Plans
+  - RateLimits
+  - FinOps
+  - Vocabulary
+  - JSONLD
+  - SpectralRuleset
+  - OpenAPI
+  - AsyncAPI
+  - JSONSchema
+  - JSONStructure
+  - Example
+  - NaftikoCapability
+
+sources:
+  - https://www.mercadopago.com/
+  - https://www.mercadopago.com.br/developers/en
+  - https://www.mercadopago.com.br/developers/en/docs
+  - https://www.mercadopago.com.br/developers/en/reference
+  - https://www.mercadopago.com.br/developers/en/docs/checkout-pro/landing
+  - https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/landing
+  - https://www.mercadopago.com.br/developers/en/docs/checkout-api/landing
+  - https://www.mercadopago.com.br/developers/en/docs/subscriptions/landing
+  - https://www.mercadopago.com.br/developers/en/docs/mp-point/landing
+  - https://www.mercadopago.com.br/developers/en/docs/qr-payments/landing
+  - https://www.mercadopago.com.br/developers/en/docs/cli/landing
+  - https://www.mercadopago.com.br/developers/en/docs/mcp-server/landing
+  - https://www.mercadopago.com.br/developers/en/docs/your-integrations/notifications/webhooks
+  - https://www.mercadopago.com.br/developers/en/docs/security/oauth/introduction
+  - https://github.com/mercadopago
+  - https://status.mercadopago.com

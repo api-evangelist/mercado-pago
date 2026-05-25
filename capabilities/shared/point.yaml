@@ -1,0 +1,29 @@
+name: mercado-pago-point
+description: |
+  Shared Mercado Pago Point (POS) capability for in-person payments.
+  Manage stores, points-of-sale, terminals, and QR-code in-person orders.
+provider: mercado-pago
+api: mercado-pago:point
+openapi: ../../openapi/mercado-pago-openapi.yml
+auth:
+  type: bearer
+  env: MERCADO_PAGO_ACCESS_TOKEN
+operations:
+  - operationId: createStore
+  - operationId: getStore
+  - operationId: updateStore
+  - operationId: searchStores
+  - operationId: deleteStore
+  - operationId: createPos
+  - operationId: getPos
+  - operationId: updatePos
+  - operationId: searchPos
+  - operationId: deletePos
+  - operationId: listTerminals
+  - operationId: createQrOrder
+  - operationId: deleteQrOrder
+tags:
+  - POS
+  - Point
+  - QR
+  - In Person

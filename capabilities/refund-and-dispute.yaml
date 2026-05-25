@@ -1,0 +1,26 @@
+name: refund-and-dispute
+description: |
+  Workflow capability: process a refund (full or partial) and handle any
+  resulting buyer claim or chargeback. Composes payment refund, claims
+  search, and chargeback lookup.
+provider: mercado-pago
+shared:
+  - shared/payments.yaml
+flow:
+  - step: Refund the payment
+    operationId: refundPayment
+    input:
+      amount: optional_for_partial
+  - step: Verify refund status
+    operationId: getRefund
+  - step: Check claims if disputed
+    operationId: searchClaims
+    optional: true
+  - step: Inspect chargeback if charged-back
+    operationId: getChargeback
+    optional: true
+tags:
+  - Refunds
+  - Claims
+  - Chargebacks
+  - Workflow

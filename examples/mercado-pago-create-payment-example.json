@@ -1,0 +1,58 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.mercadopago.com/v1/payments",
+    "headers": {
+      "Authorization": "Bearer APP_USR-1234567890",
+      "Content-Type": "application/json",
+      "X-Idempotency-Key": "f7b2a1d4-0b1c-4ec2-aaaa-9e8b1d2f3c4d"
+    },
+    "body": {
+      "transaction_amount": 100.0,
+      "description": "Test product purchase",
+      "payment_method_id": "pix",
+      "external_reference": "ORDER-2026-0001",
+      "notification_url": "https://merchant.example.com/webhooks/mercadopago",
+      "payer": {
+        "email": "test_user@testuser.com",
+        "first_name": "Test",
+        "last_name": "User",
+        "identification": {
+          "type": "CPF",
+          "number": "19119119100"
+        }
+      }
+    }
+  },
+  "response": {
+    "status": 201,
+    "body": {
+      "id": 1234567890,
+      "date_created": "2026-05-25T13:01:02.000-03:00",
+      "date_approved": null,
+      "status": "pending",
+      "status_detail": "pending_waiting_transfer",
+      "currency_id": "BRL",
+      "transaction_amount": 100.0,
+      "transaction_amount_refunded": 0,
+      "payment_method_id": "pix",
+      "payment_type_id": "bank_transfer",
+      "external_reference": "ORDER-2026-0001",
+      "point_of_interaction": {
+        "type": "PIX",
+        "transaction_data": {
+          "qr_code": "00020126360014BR.GOV.BCB.PIX0114+5511999998888...",
+          "qr_code_base64": "iVBORw0KGgoAAAANSUhEUgAA...",
+          "ticket_url": "https://www.mercadopago.com.br/payments/1234567890/ticket"
+        }
+      },
+      "payer": {
+        "email": "test_user@testuser.com",
+        "identification": {
+          "type": "CPF",
+          "number": "19119119100"
+        }
+      }
+    }
+  }
+}

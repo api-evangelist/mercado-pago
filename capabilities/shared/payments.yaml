@@ -1,0 +1,26 @@
+name: mercado-pago-payments
+description: |
+  Shared Mercado Pago Payments capability. Exposes the core /v1/payments
+  surface (create, get, search, capture, cancel, refund) plus the
+  /v1/payment_methods discovery endpoint as Naftiko tools for AI agents.
+provider: mercado-pago
+api: mercado-pago:payments
+openapi: ../../openapi/mercado-pago-openapi.yml
+auth:
+  type: bearer
+  env: MERCADO_PAGO_ACCESS_TOKEN
+operations:
+  - operationId: createPayment
+  - operationId: getPayment
+  - operationId: searchPayments
+  - operationId: updatePayment
+  - operationId: cancelPayment
+  - operationId: refundPayment
+  - operationId: listRefunds
+  - operationId: getRefund
+  - operationId: listPaymentMethods
+tags:
+  - Payments
+  - Refunds
+  - PIX
+  - Cards

@@ -1,0 +1,90 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Mercado Pago
+providerId: mercado-pago
+created: '2026-05-25'
+modified: '2026-05-25'
+tags:
+  - Payments
+  - Checkout
+  - Subscriptions
+  - PIX
+  - Rate Limiting
+  - Throttling
+description: |
+  Rate-limit model for the Mercado Pago API surface. Mercado Pago does not
+  publish a single hard, public rate-limit number for its REST APIs —
+  limits are applied per access token, per IP, and per endpoint, and can
+  be increased on request for high-volume merchants. The values below
+  capture the documented behaviour: token-scoped throttling, HTTP 429 on
+  exceedance with Retry-After, and standard rate-limit response headers.
+headers:
+  limit: X-RateLimit-Limit
+  remaining: X-RateLimit-Remaining
+  reset: X-RateLimit-Reset
+  retryAfter: Retry-After
+  policy: RateLimit-Policy
+responseCodes:
+  throttled: 429
+  quotaExceeded: 429
+  serviceUnavailable: 503
+limits:
+  - tier: default
+    name: Default Per-Token Throttle
+    scope: access-token
+    metric: requests_per_second
+    limit: 25
+    burst: 50
+    timeFrame: second
+    applies:
+      - https://api.mercadopago.com
+    description: |
+      Default per-token request envelope across all REST endpoints. Burst
+      tolerance allows short spikes above the sustained limit; subsequent
+      requests are throttled with HTTP 429 + Retry-After.
+  - tier: high-volume
+    name: High-Volume Merchant Tier
+    scope: access-token
+    metric: requests_per_second
+    limit: 100
+    burst: 200
+    timeFrame: second
+    applies:
+      - https://api.mercadopago.com
+    description: |
+      Elevated rate envelope granted on request for merchants with
+      sustained high throughput. Apply via Mercado Pago Sales or Support.
+  - tier: search-endpoints
+    name: Search Endpoints Throttle
+    scope: access-token
+    metric: requests_per_minute
+    limit: 60
+    burst: 120
+    timeFrame: minute
+    applies:
+      - https://api.mercadopago.com/v1/payments/search
+      - https://api.mercadopago.com/checkout/preferences/search
+      - https://api.mercadopago.com/merchant_orders/search
+      - https://api.mercadopago.com/preapproval/search
+    description: |
+      Search / list endpoints have a tighter per-token envelope to
+      discourage scraping; pair with paging and date-range filters.
+recoveryStrategies:
+  - name: Exponential Backoff With Jitter
+    description: |
+      On HTTP 429, honour Retry-After. If absent, back off exponentially
+      (base 1s, factor 2, max 60s) with ±20% jitter.
+  - name: Idempotent Retry
+    description: |
+      All POST / PUT operations support an `X-Idempotency-Key` header; use
+      a stable key per logical operation so retries are safe.
+  - name: Webhook-First Reconciliation
+    description: |
+      Prefer signed webhook delivery over polling /search endpoints; this
+      both reduces request volume and avoids tripping the search-endpoint
+      throttle.
+notes:
+  - Mercado Pago does not publish a single canonical rate-limit number — the values above are operationally observed envelopes.
+  - High-volume access can be requested via account management.
+  - All endpoints support paging (`limit`, `offset`); use it to avoid burst patterns.

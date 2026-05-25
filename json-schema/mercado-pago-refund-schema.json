@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mercado-pago/refs/heads/main/json-schema/mercado-pago-refund-schema.json",
+  "title": "Mercado Pago Refund",
+  "type": "object",
+  "required": ["id", "payment_id", "amount", "status"],
+  "properties": {
+    "id": { "type": "integer", "format": "int64" },
+    "payment_id": { "type": "integer", "format": "int64" },
+    "amount": { "type": "number", "minimum": 0 },
+    "date_created": { "type": "string", "format": "date-time" },
+    "status": { "type": "string", "enum": ["approved", "rejected", "in_process"] },
+    "unique_sequence_number": { "type": ["string", "null"] },
+    "source": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "type": { "type": "string" }
+      }
+    }
+  }
+}

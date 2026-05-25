@@ -1,0 +1,122 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+provider: Mercado Pago
+providerId: mercado-pago
+publisherName: Mercado Pago
+serviceCategory: Payments
+created: '2026-05-25'
+modified: '2026-05-25'
+tags:
+  - Payments
+  - Checkout
+  - Subscriptions
+  - PIX
+  - Latin America
+  - FinOps
+  - Cost Management
+  - FOCUS
+description: |
+  FinOps alignment for the Mercado Pago API surface. Because Mercado Pago
+  charges per processed transaction (not per API call), the FinOps lens for
+  this provider is dominated by Cost of Goods Sold (COGS) on payment
+  acceptance — payment-method mix, settlement timing, installment policy,
+  and refund / chargeback rates — rather than infrastructure cost.
+
+principles:
+  - name: Visibility
+    description: |
+      Make payment-acceptance cost (gateway fees, installment surcharge,
+      anticipation discount, FX spread) visible to engineering, product,
+      finance, and operations in near real-time.
+  - name: Allocation
+    description: |
+      Tag every processed transaction with the consuming business unit,
+      sales channel, payment method, market, and settlement window so cost
+      and margin can be allocated.
+  - name: Optimization
+    description: |
+      Continuously evaluate payment-method mix (PIX vs card vs boleto),
+      settlement window (immediate vs 14-day vs 30-day), installment
+      strategy, and refund / chargeback rates against margin targets.
+  - name: Accountability
+    description: |
+      Establish budget owners for each market and product (Checkout Pro,
+      Bricks, Checkout API, Point, QR, Subscriptions). Implement
+      chargeback / showback flows so payment-acceptance cost is reflected
+      in unit economics.
+
+domains:
+  - name: Payment Acceptance
+    description: Per-transaction commission charged on each successful payment.
+    costDrivers:
+      - payment_method (PIX, card, boleto, OXXO, account_money)
+      - settlement_window (immediate, 14d, 30d)
+      - installment_count
+      - market
+      - merchant_segment
+    focusMapping:
+      ChargeCategory: Usage
+      ChargeClass: Consumption
+      ServiceCategory: Payments
+      ServiceSubcategory: Payment Acceptance
+  - name: Anticipation / Early Settlement
+    description: Optional fee for releasing funds before the standard settlement window.
+    costDrivers:
+      - acceleration_days
+      - card_brand
+      - installment_count
+    focusMapping:
+      ChargeCategory: Usage
+      ChargeClass: Consumption
+      ServiceCategory: Payments
+      ServiceSubcategory: Settlement Acceleration
+  - name: Refund / Chargeback Loss
+    description: Loss-event domain capturing financial impact of refunds and chargebacks.
+    costDrivers:
+      - refund_rate
+      - chargeback_rate
+      - mediation_outcome
+    focusMapping:
+      ChargeCategory: Adjustment
+      ChargeClass: Refund
+      ServiceCategory: Payments
+      ServiceSubcategory: Reversal
+
+focusFields:
+  required:
+    - BillingPeriodStart
+    - BillingPeriodEnd
+    - ChargeCategory
+    - ChargePeriodStart
+    - ChargePeriodEnd
+    - ProviderName
+    - PublisherName
+    - InvoiceIssuerName
+    - ServiceName
+    - ServiceCategory
+    - BilledCost
+    - EffectiveCost
+    - ListCost
+    - ContractedCost
+    - PricingCategory
+    - PricingUnit
+    - PricingQuantity
+  recommended:
+    - SubAccountId
+    - SubAccountName
+    - ResourceId
+    - ResourceName
+    - ResourceType
+    - Region
+    - Tags
+
+notes:
+  - Reconcile this scaffold against Mercado Pago Reports (release reports, settlement statements, anticipation reports).
+  - The Release Report API (/v1/account/release) is the canonical source of per-transaction line items.
+  - For LatAm cross-border flows, capture FX spread as a distinct cost line.

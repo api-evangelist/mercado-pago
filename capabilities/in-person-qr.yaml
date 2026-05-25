@@ -1,0 +1,34 @@
+name: in-person-qr
+description: |
+  Workflow capability: collect an in-person payment via a Mercado Pago
+  static or dynamic QR code. Agent provisions a store and POS, attaches
+  a QR order, then waits for the buyer to scan and pay.
+provider: mercado-pago
+shared:
+  - shared/point.yaml
+  - shared/payments.yaml
+flow:
+  - step: Create store
+    operationId: createStore
+    optional: true
+  - step: Create POS
+    operationId: createPos
+    optional: true
+  - step: Create or replace the QR order
+    operationId: createQrOrder
+    input:
+      total_amount: required
+      external_reference: recommended
+      notification_url: required
+      items: required
+  - step: Listen for payment
+    triggers:
+      - webhook: payment.created
+      - webhook: payment.updated
+  - step: Inspect payment
+    operationId: getPayment
+tags:
+  - QR
+  - In Person
+  - POS
+  - Workflow

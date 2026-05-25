@@ -1,0 +1,31 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://merchant.example.com/webhooks/mercadopago",
+    "headers": {
+      "x-signature": "ts=1716651000,v1=8b7c6d5e4f3a2b1c0d9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e0f9a8b7c",
+      "x-request-id": "f7b2a1d4-0b1c-4ec2-aaaa-9e8b1d2f3c4d",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "id": 112233445566,
+      "live_mode": true,
+      "type": "payment",
+      "date_created": "2026-05-25T13:01:08.000-03:00",
+      "application_id": 1234567890,
+      "user_id": 987654321,
+      "version": 1,
+      "api_version": "v1",
+      "action": "payment.updated",
+      "data": {
+        "id": "1234567890"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "received": true
+    }
+  }
+}

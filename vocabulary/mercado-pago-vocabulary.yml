@@ -1,0 +1,136 @@
+name: Mercado Pago Vocabulary
+provider: Mercado Pago
+providerId: mercado-pago
+created: '2026-05-25'
+modified: '2026-05-25'
+description: >-
+  Domain vocabulary for the Mercado Pago API surface. Maps the provider's
+  operational and capability dimensions across payments, checkout,
+  subscriptions, point-of-sale, QR, claims, and reporting.
+
+dimensions:
+  - id: payment-flow
+    name: Payment Flow
+    terms:
+      - id: checkout-pro
+        name: Checkout Pro
+        definition: Hosted, pre-built Mercado Pago checkout flow with full redirection.
+      - id: checkout-bricks
+        name: Checkout Bricks
+        definition: Composable web components embedded in merchant UI for partial PCI scope reduction.
+      - id: checkout-api
+        name: Checkout API
+        definition: Full server-side checkout flow under merchant control, including direct card and PIX payment creation.
+      - id: orders-api
+        name: Orders API
+        definition: Unified next-generation order/payment resource consolidating payments, captures, refunds, and transactions.
+      - id: payment-link
+        name: Payment Link
+        definition: Shareable URL for one-off or recurring collection.
+
+  - id: payment-method
+    name: Payment Method
+    terms:
+      - id: pix
+        name: PIX
+        definition: Brazilian instant bank-transfer rail; primary alternative payment method in Brazil.
+      - id: boleto
+        name: Boleto Bancário
+        definition: Brazilian voucher / bank-slip payment, settled offline within 1-3 business days.
+      - id: oxxo
+        name: OXXO
+        definition: Mexican cash voucher paid in convenience stores.
+      - id: spei
+        name: SPEI
+        definition: Mexican interbank electronic transfer system.
+      - id: pse
+        name: PSE
+        definition: Colombian online bank transfer rail.
+      - id: cards
+        name: Credit / Debit Cards
+        definition: International card schemes (Visa, Mastercard, Amex, Elo, Hipercard) and local LATAM brands.
+      - id: account-money
+        name: Account Money
+        definition: Funds held in the buyer's Mercado Pago wallet balance.
+      - id: digital-wallet
+        name: Digital Wallet
+        definition: Buyer-side mobile wallet checkout (QR, NFC).
+
+  - id: lifecycle-status
+    name: Payment Lifecycle Status
+    terms:
+      - id: pending
+        name: Pending
+        definition: Payment initiated but not yet approved.
+      - id: approved
+        name: Approved
+        definition: Payment authorised and captured.
+      - id: authorized
+        name: Authorized
+        definition: Funds held but not yet captured (deferred capture).
+      - id: in_process
+        name: In Process
+        definition: Asynchronously reviewed by issuer or anti-fraud.
+      - id: in_mediation
+        name: In Mediation
+        definition: Buyer dispute is in mediation.
+      - id: rejected
+        name: Rejected
+      - id: cancelled
+        name: Cancelled
+      - id: refunded
+        name: Refunded
+      - id: charged_back
+        name: Charged Back
+
+  - id: market
+    name: Market / Site
+    terms:
+      - id: mlb
+        name: Brazil (MLB)
+      - id: mla
+        name: Argentina (MLA)
+      - id: mlm
+        name: Mexico (MLM)
+      - id: mlc
+        name: Chile (MLC)
+      - id: mco
+        name: Colombia (MCO)
+      - id: mpe
+        name: Peru (MPE)
+      - id: muy
+        name: Uruguay (MUY)
+
+  - id: integration-surface
+    name: Integration Surface
+    terms:
+      - id: rest-api
+        name: REST API
+      - id: webhooks
+        name: Signed Webhooks
+      - id: sdk
+        name: Official SDK
+      - id: cli
+        name: Mercado Pago CLI
+      - id: mcp
+        name: MCP Server
+      - id: plugin
+        name: E-commerce Plugin
+
+  - id: capability
+    name: Capability
+    terms:
+      - id: collect
+        name: Collect Funds
+      - id: refund
+        name: Refund
+      - id: subscribe
+        name: Subscribe
+      - id: payout
+        name: Payout / Money Release
+      - id: tokenize
+        name: Tokenise Card
+      - id: dispute
+        name: Dispute Resolution
+      - id: report
+        name: Reconciliation Report

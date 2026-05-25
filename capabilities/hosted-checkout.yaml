@@ -1,0 +1,34 @@
+name: hosted-checkout
+description: |
+  Workflow capability: collect a payment via Checkout Pro. Agent creates a
+  preference with line items and back URLs, returns init_point URL for
+  buyer redirection, then tracks completion via merchant_order or signed
+  webhook delivery.
+provider: mercado-pago
+shared:
+  - shared/checkout.yaml
+  - shared/payments.yaml
+flow:
+  - step: Create preference
+    operationId: createPreference
+    input:
+      items: required
+      back_urls: required
+      auto_return: approved
+      external_reference: recommended
+      notification_url: required
+    output:
+      init_point: redirect_url_for_buyer
+      sandbox_init_point: redirect_url_for_buyer_test
+  - step: Listen for webhook
+    triggers:
+      - webhook: merchant_order.updated
+      - webhook: payment.updated
+  - step: Verify merchant order
+    operationId: getMerchantOrder
+  - step: Inspect payment(s)
+    operationId: getPayment
+tags:
+  - Checkout
+  - Workflow
+  - Hosted

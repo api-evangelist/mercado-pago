@@ -1,0 +1,43 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.mercadopago.com/preapproval",
+    "headers": {
+      "Authorization": "Bearer APP_USR-1234567890",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "reason": "API Evangelist monthly plan",
+      "external_reference": "SUB-2026-0001",
+      "payer_email": "subscriber@example.com",
+      "back_url": "https://merchant.example.com/subscriptions/return",
+      "auto_recurring": {
+        "frequency": 1,
+        "frequency_type": "months",
+        "transaction_amount": 49.9,
+        "currency_id": "BRL",
+        "start_date": "2026-06-01T00:00:00.000-03:00"
+      },
+      "status": "pending"
+    }
+  },
+  "response": {
+    "status": 201,
+    "body": {
+      "id": "2c938084814f6e6e018152a8c4350001",
+      "payer_email": "subscriber@example.com",
+      "external_reference": "SUB-2026-0001",
+      "reason": "API Evangelist monthly plan",
+      "status": "pending",
+      "init_point": "https://www.mercadopago.com.br/subscriptions/checkout?preapproval_id=2c938084814f6e6e018152a8c4350001",
+      "date_created": "2026-05-25T13:45:00.000-03:00",
+      "next_payment_date": "2026-06-01T00:00:00.000-03:00",
+      "auto_recurring": {
+        "frequency": 1,
+        "frequency_type": "months",
+        "transaction_amount": 49.9,
+        "currency_id": "BRL"
+      }
+    }
+  }
+}

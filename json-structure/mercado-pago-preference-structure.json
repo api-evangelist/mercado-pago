@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mercado-pago/refs/heads/main/json-structure/mercado-pago-preference-structure.json",
+  "name": "MercadoPagoPreference",
+  "type": "object",
+  "description": "Operational structure of a Mercado Pago Checkout Pro preference.",
+  "properties": {
+    "id": { "type": "string" },
+    "client_id": { "type": "string" },
+    "collector_id": { "type": "int64" },
+    "date_created": { "type": "datetime" },
+    "external_reference": { "type": "string" },
+    "init_point": { "type": "string" },
+    "sandbox_init_point": { "type": "string" },
+    "auto_return": { "type": "string" },
+    "notification_url": { "type": "string" },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "quantity": { "type": "int32" },
+          "currency_id": { "type": "string" },
+          "unit_price": { "type": "decimal" }
+        }
+      }
+    }
+  }
+}

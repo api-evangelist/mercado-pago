@@ -1,0 +1,139 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Mercado Pago
+providerId: mercado-pago
+created: '2026-05-25'
+modified: '2026-05-25'
+tags:
+  - Payments
+  - Checkout
+  - Subscriptions
+  - POS
+  - QR
+  - PIX
+  - Latin America
+  - Brazil
+  - Argentina
+  - Mexico
+  - Fintech
+description: |
+  Commercial model for the Mercado Pago API surface. Mercado Pago does not
+  meter its APIs on a per-request basis — pricing is transaction-based and
+  set per market, per product, per payment method, and per settlement window
+  (immediate, daily, 14-day, 30-day). API access itself is free; the
+  merchant pays per successfully processed transaction. The published
+  Brazilian rates below are representative scaffold values; reconcile per
+  market and per acquiring contract.
+pricingModel:
+  type: transactional
+  basis: per-successful-transaction
+  variableBy:
+    - market
+    - payment_method
+    - settlement_window
+    - product (Checkout Pro vs Bricks vs API vs Point vs QR)
+    - merchant_segment
+plans:
+  - id: mercado-pago-developer-access
+    name: Developer Access
+    type: free
+    description: |
+      Free, self-serve access to the Mercado Pago APIs, sandbox, SDKs,
+      CLI, and MCP server. No monthly API fee. Merchant pays only per
+      processed transaction.
+    entries:
+      - label: API Access
+        description: Sandbox + production API access against all REST endpoints
+        name: api_access
+        type: feature
+        metric: included
+        limit: -1
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Sandbox Environment
+        description: Full sandbox with test payment methods, including PIX/Boleto/OXXO
+        name: sandbox
+        type: feature
+        metric: included
+        limit: -1
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Webhooks
+        description: Signed payment / merchant_order / preapproval webhooks
+        name: webhooks
+        type: feature
+        metric: included
+        limit: -1
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+  - id: mercado-pago-transaction-pricing-br
+    name: Transaction Pricing (Brazil reference)
+    type: usage
+    description: |
+      Representative per-transaction commissions for Brazil (MLB).
+      Mercado Pago publishes country-specific rate cards; the published
+      headline rates as of 2026 are summarised below. Reconcile against
+      `https://www.mercadopago.com.br/custos-de-vender/precos-cobrar` for
+      live pricing.
+    entries:
+      - label: Credit Card — Immediate Settlement
+        description: Per credit-card transaction released within ~14 days
+        name: credit_card_immediate
+        type: rate
+        metric: percent_of_transaction
+        limit: -1
+        unit: 1
+        price: '4.98'
+        currency: BRL
+      - label: Credit Card — 30 Day Settlement
+        description: Per credit-card transaction released after 30 days
+        name: credit_card_30d
+        type: rate
+        metric: percent_of_transaction
+        limit: -1
+        unit: 1
+        price: '3.79'
+        currency: BRL
+      - label: PIX
+        description: Per approved PIX payment
+        name: pix
+        type: rate
+        metric: percent_of_transaction
+        limit: -1
+        unit: 1
+        price: '0.99'
+        currency: BRL
+      - label: Boleto
+        description: Per approved boleto bancário
+        name: boleto
+        type: rate
+        metric: fixed_per_transaction
+        limit: -1
+        unit: 1
+        price: '3.49'
+        currency: BRL
+      - label: Debit Card
+        description: Per approved debit card transaction
+        name: debit_card
+        type: rate
+        metric: percent_of_transaction
+        limit: -1
+        unit: 1
+        price: '1.99'
+        currency: BRL
+references:
+  - name: Mercado Pago — Custos de Vender (BR)
+    url: https://www.mercadopago.com.br/custos-de-vender
+  - name: Mercado Pago — Costos (AR)
+    url: https://www.mercadopago.com.ar/costs-section
+  - name: Mercado Pago Developer Portal
+    url: https://www.mercadopago.com.br/developers/en
+notes:
+  - API surface itself is free; charges are applied per processed transaction.
+  - Rates above are headline scaffold values for Brazil; specific merchant contracts vary.
+  - Argentina, Mexico, Chile, Colombia, Peru, Uruguay each publish their own rate cards.
+  - High-volume merchants negotiate bespoke pricing through Mercado Pago Sales.

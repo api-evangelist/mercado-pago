@@ -1,0 +1,57 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.mercadopago.com/checkout/preferences",
+    "headers": {
+      "Authorization": "Bearer APP_USR-1234567890",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "items": [
+        {
+          "id": "SKU-001",
+          "title": "API Evangelist hoodie",
+          "description": "Premium cotton, navy blue",
+          "category_id": "fashion",
+          "quantity": 1,
+          "currency_id": "BRL",
+          "unit_price": 199.9
+        }
+      ],
+      "payer": {
+        "email": "buyer@example.com",
+        "first_name": "Kin",
+        "last_name": "Lane"
+      },
+      "back_urls": {
+        "success": "https://merchant.example.com/checkout/success",
+        "pending": "https://merchant.example.com/checkout/pending",
+        "failure": "https://merchant.example.com/checkout/failure"
+      },
+      "auto_return": "approved",
+      "notification_url": "https://merchant.example.com/webhooks/mercadopago",
+      "external_reference": "ORDER-2026-0042"
+    }
+  },
+  "response": {
+    "status": 201,
+    "body": {
+      "id": "1234567890-abc1234d-5678-90ef-ghij-klmnopqrstuv",
+      "client_id": "1234567890",
+      "collector_id": 987654321,
+      "date_created": "2026-05-25T13:30:00.000-03:00",
+      "external_reference": "ORDER-2026-0042",
+      "init_point": "https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=1234567890-abc1234d",
+      "sandbox_init_point": "https://sandbox.mercadopago.com.br/checkout/v1/redirect?pref_id=1234567890-abc1234d",
+      "items": [
+        {
+          "id": "SKU-001",
+          "title": "API Evangelist hoodie",
+          "quantity": 1,
+          "currency_id": "BRL",
+          "unit_price": 199.9
+        }
+      ]
+    }
+  }
+}

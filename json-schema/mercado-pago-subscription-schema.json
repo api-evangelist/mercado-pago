@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mercado-pago/refs/heads/main/json-schema/mercado-pago-subscription-schema.json",
+  "title": "Mercado Pago Subscription (Preapproval)",
+  "type": "object",
+  "required": ["payer_email", "auto_recurring"],
+  "properties": {
+    "id": { "type": "string" },
+    "payer_id": { "type": "integer" },
+    "payer_email": { "type": "string", "format": "email" },
+    "back_url": { "type": "string", "format": "uri" },
+    "reason": { "type": "string" },
+    "external_reference": { "type": "string" },
+    "status": { "type": "string", "enum": ["pending", "authorized", "paused", "cancelled", "finished"] },
+    "date_created": { "type": "string", "format": "date-time" },
+    "last_modified": { "type": "string", "format": "date-time" },
+    "next_payment_date": { "type": "string", "format": "date-time" },
+    "auto_recurring": {
+      "type": "object",
+      "required": ["frequency", "frequency_type", "transaction_amount", "currency_id"],
+      "properties": {
+        "frequency": { "type": "integer", "minimum": 1 },
+        "frequency_type": { "type": "string", "enum": ["days", "months"] },
+        "start_date": { "type": "string", "format": "date-time" },
+        "end_date": { "type": "string", "format": "date-time" },
+        "transaction_amount": { "type": "number", "minimum": 0 },
+        "currency_id": { "type": "string" },
+        "free_trial": {
+          "type": "object",
+          "properties": {
+            "frequency": { "type": "integer" },
+            "frequency_type": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

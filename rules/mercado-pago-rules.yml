@@ -1,0 +1,78 @@
+extends:
+  - spectral:oas
+rules:
+  mercado-pago-title-case-summary:
+    description: All operation summaries must use Title Case.
+    message: Operation summary "{{value}}" should use Title Case.
+    severity: warn
+    given: $.paths[*][get,post,put,delete,patch].summary
+    then:
+      function: pattern
+      functionOptions:
+        match: "^([A-Z][a-zA-Z0-9]*)(\\s+(A|An|And|As|At|But|By|For|In|Of|On|Or|The|To|Vs|Via|With|[A-Z][a-zA-Z0-9]*))*$"
+
+  mercado-pago-operation-id-required:
+    description: All operations must define an operationId.
+    severity: error
+    given: $.paths[*][get,post,put,delete,patch]
+    then:
+      field: operationId
+      function: truthy
+
+  mercado-pago-operation-tag-required:
+    description: Every operation must be tagged.
+    severity: error
+    given: $.paths[*][get,post,put,delete,patch]
+    then:
+      field: tags
+      function: truthy
+
+  mercado-pago-bearer-security:
+    description: Bearer security must be defined at the document root.
+    severity: error
+    given: $
+    then:
+      field: security
+      function: truthy
+
+  mercado-pago-server-https:
+    description: Every server URL must use HTTPS.
+    severity: error
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://"
+
+  mercado-pago-idempotency-key-on-mutations:
+    description: POST / PUT operations should document an X-Idempotency-Key header.
+    severity: warn
+    given: $.paths[*][post,put].description
+    then:
+      function: pattern
+      functionOptions:
+        match: "idempoten"
+
+  mercado-pago-no-trailing-slash:
+    description: Paths must not end with a trailing slash.
+    severity: error
+    given: $.paths
+    then:
+      function: pattern
+      functionOptions:
+        match: "^(?!.*\\/$).+"
+        property: "@key"
+
+  mercado-pago-error-responses:
+    description: Mutating operations should declare at least one 4xx response.
+    severity: warn
+    given: $.paths[*][post,put,delete].responses
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          patternProperties:
+            "^4[0-9][0-9]$":
+              type: object
+          minProperties: 1

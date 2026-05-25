@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/mercado-pago/refs/heads/main/json-structure/mercado-pago-payment-structure.json",
+  "name": "MercadoPagoPayment",
+  "type": "object",
+  "description": "Operational structure of a Mercado Pago Payment resource for code generation and validation.",
+  "properties": {
+    "id": { "type": "int64" },
+    "status": { "type": "string" },
+    "status_detail": { "type": "string" },
+    "currency_id": { "type": "string" },
+    "transaction_amount": { "type": "decimal" },
+    "transaction_amount_refunded": { "type": "decimal" },
+    "payment_method_id": { "type": "string" },
+    "payment_type_id": { "type": "string" },
+    "installments": { "type": "int32" },
+    "external_reference": { "type": "string" },
+    "date_created": { "type": "datetime" },
+    "date_approved": { "type": "datetime" },
+    "money_release_date": { "type": "datetime" },
+    "payer": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "email": { "type": "string" },
+        "identification_type": { "type": "string" },
+        "identification_number": { "type": "string" }
+      }
+    }
+  }
+}

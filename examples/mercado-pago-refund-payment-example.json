@@ -1,0 +1,30 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.mercadopago.com/v1/payments/1234567890/refunds",
+    "headers": {
+      "Authorization": "Bearer APP_USR-1234567890",
+      "Content-Type": "application/json",
+      "X-Idempotency-Key": "refund-ORDER-2026-0001-1"
+    },
+    "body": {
+      "amount": 25.0
+    }
+  },
+  "response": {
+    "status": 201,
+    "body": {
+      "id": 9876543210,
+      "payment_id": 1234567890,
+      "amount": 25.0,
+      "source": {
+        "id": "987654321",
+        "name": "Merchant Account",
+        "type": "collector"
+      },
+      "date_created": "2026-05-25T14:10:00.000-03:00",
+      "status": "approved",
+      "unique_sequence_number": null
+    }
+  }
+}
