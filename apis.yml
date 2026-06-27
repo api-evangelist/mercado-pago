@@ -317,7 +317,7 @@ apis:
     properties:
       - type: Repository
         url: https://github.com/mercadopago/sdk-nodejs
-      - type: SDK
+      - type: SDKs
         url: https://www.npmjs.com/package/mercadopago
   - aid: mercado-pago:sdk-python
     name: Mercado Pago Python SDK
@@ -331,7 +331,7 @@ apis:
     properties:
       - type: Repository
         url: https://github.com/mercadopago/sdk-python
-      - type: SDK
+      - type: SDKs
         url: https://pypi.org/project/mercadopago/
   - aid: mercado-pago:sdk-php
     name: Mercado Pago PHP SDK
@@ -346,7 +346,7 @@ apis:
     properties:
       - type: Repository
         url: https://github.com/mercadopago/sdk-php
-      - type: SDK
+      - type: SDKs
         url: https://packagist.org/packages/mercadopago/dx-php
   - aid: mercado-pago:sdk-ruby
     name: Mercado Pago Ruby SDK
@@ -360,7 +360,7 @@ apis:
     properties:
       - type: Repository
         url: https://github.com/mercadopago/sdk-ruby
-      - type: SDK
+      - type: SDKs
         url: https://rubygems.org/gems/mercadopago-sdk
   - aid: mercado-pago:sdk-java
     name: Mercado Pago Java SDK
@@ -387,7 +387,7 @@ apis:
     properties:
       - type: Repository
         url: https://github.com/mercadopago/sdk-dotnet
-      - type: SDK
+      - type: SDKs
         url: https://www.nuget.org/packages/mercadopago-sdk
   - aid: mercado-pago:sdk-go
     name: Mercado Pago Go SDK
