@@ -1,0 +1,29 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/mercado-pago-openapi.yml
+summary:
+  types:
+  - http
+  - oauth2
+  oauth2_flows:
+  - authorizationCode
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: access_token
+  description: |-
+    Mercado Pago access token. Send as `Authorization: Bearer {ACCESS_TOKEN}`.
+    HTTPS is required. Idempotency is supported via the `X-Idempotency-Key`
+    header on POST/PUT operations.
+  sources:
+  - openapi/mercado-pago-openapi.yml
+- name: oauth2
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://auth.mercadopago.com/authorization
+    tokenUrl: https://api.mercadopago.com/oauth/token
+    scopes: 3
+  sources:
+  - openapi/mercado-pago-openapi.yml
