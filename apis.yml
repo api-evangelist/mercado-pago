@@ -498,6 +498,8 @@ apis:
       - type: Repository
         url: https://github.com/mercadopago/n8n-nodes-mercadopago
 common:
+  - type: OAuthScopes
+    url: scopes/mercado-pago-scopes.yml
   - type: Website
     url: https://www.mercadopago.com/
   - type: Developers
@@ -530,6 +532,8 @@ common:
     url: https://raw.githubusercontent.com/api-evangelist/mercado-pago/refs/heads/main/json-ld/mercado-pago-context.jsonld
   - type: SpectralRuleset
     url: https://raw.githubusercontent.com/api-evangelist/mercado-pago/refs/heads/main/rules/mercado-pago-rules.yml
+  - url: https://www.mercadopago.com.ar/developers/en/news
+    type: Blog
 integrations:
   - name: Shopify
   - name: WooCommerce

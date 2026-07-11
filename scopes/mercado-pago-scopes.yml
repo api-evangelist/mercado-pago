@@ -1,0 +1,29 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/mercado-pago-openapi.yml
+schemes:
+- name: oauth2
+  source: openapi/mercado-pago-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://auth.mercadopago.com/authorization
+    tokenUrl: https://api.mercadopago.com/oauth/token
+scopes:
+- scope: offline_access
+  description: Persistent refresh token
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/mercado-pago-openapi.yml
+- scope: read
+  description: Read merchant data
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/mercado-pago-openapi.yml
+- scope: write
+  description: Write merchant data
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/mercado-pago-openapi.yml
