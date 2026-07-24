@@ -1,0 +1,90 @@
+openapi: 3.1.0
+info:
+  title: Mercado Pago REST Authentication QR API
+  description: 'Mercado Pago REST API covering payments, Checkout Pro preferences,
+
+    subscriptions (preapprovals), customers, cards, merchant orders, Orders
+
+    API, refunds, chargebacks, claims, reports, Point (POS), QR, and OAuth.
+
+    All requests authenticate with a Bearer access token in the
+
+    `Authorization` header. Webhook deliveries are signed via the
+
+    `x-signature` and `x-request-id` headers.
+
+    '
+  version: v1
+  contact:
+    name: Mercado Pago Developers
+    url: https://www.mercadopago.com.br/developers/en/reference
+  license:
+    name: Mercado Pago Terms of Service
+    url: https://www.mercadopago.com.br/ayuda/terminos-y-politicas_299
+servers:
+- url: https://api.mercadopago.com
+  description: Mercado Pago Production API
+security:
+- bearerAuth: []
+tags:
+- name: QR
+  description: QR-code in-person collection
+paths:
+  /instore/qr/seller/collectors/{user_id}/pos/{external_pos_id}/orders:
+    parameters:
+    - name: user_id
+      in: path
+      required: true
+      schema:
+        type: integer
+    - name: external_pos_id
+      in: path
+      required: true
+      schema:
+        type: string
+    put:
+      tags:
+      - QR
+      summary: Create A QR Order
+      description: Create or replace the QR order for an in-person point of sale.
+      operationId: createQrOrder
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '204':
+          description: QR order created
+    delete:
+      tags:
+      - QR
+      summary: Delete A QR Order
+      operationId: deleteQrOrder
+      responses:
+        '204':
+          description: QR order deleted
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: access_token
+      description: 'Mercado Pago access token. Send as `Authorization: Bearer {ACCESS_TOKEN}`.
+
+        HTTPS is required. Idempotency is supported via the `X-Idempotency-Key`
+
+        header on POST/PUT operations.
+
+        '
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://auth.mercadopago.com/authorization
+          tokenUrl: https://api.mercadopago.com/oauth/token
+          scopes:
+            offline_access: Persistent refresh token
+            read: Read merchant data
+            write: Write merchant data

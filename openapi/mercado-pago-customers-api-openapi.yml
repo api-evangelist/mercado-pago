@@ -1,0 +1,173 @@
+openapi: 3.1.0
+info:
+  title: Mercado Pago REST Authentication Customers API
+  description: 'Mercado Pago REST API covering payments, Checkout Pro preferences,
+
+    subscriptions (preapprovals), customers, cards, merchant orders, Orders
+
+    API, refunds, chargebacks, claims, reports, Point (POS), QR, and OAuth.
+
+    All requests authenticate with a Bearer access token in the
+
+    `Authorization` header. Webhook deliveries are signed via the
+
+    `x-signature` and `x-request-id` headers.
+
+    '
+  version: v1
+  contact:
+    name: Mercado Pago Developers
+    url: https://www.mercadopago.com.br/developers/en/reference
+  license:
+    name: Mercado Pago Terms of Service
+    url: https://www.mercadopago.com.br/ayuda/terminos-y-politicas_299
+servers:
+- url: https://api.mercadopago.com
+  description: Mercado Pago Production API
+security:
+- bearerAuth: []
+tags:
+- name: Customers
+  description: Stored customers and addresses
+paths:
+  /v1/customers:
+    post:
+      tags:
+      - Customers
+      summary: Create A Customer
+      operationId: createCustomer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerRequest'
+      responses:
+        '201':
+          description: Customer created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+  /v1/customers/search:
+    get:
+      tags:
+      - Customers
+      summary: Search Customers
+      operationId: searchCustomers
+      responses:
+        '200':
+          description: Search results
+  /v1/customers/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Customers
+      summary: Get A Customer
+      operationId: getCustomer
+      responses:
+        '200':
+          description: Customer
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+    put:
+      tags:
+      - Customers
+      summary: Update A Customer
+      operationId: updateCustomer
+      responses:
+        '200':
+          description: Updated customer
+components:
+  schemas:
+    CustomerRequest:
+      type: object
+      required:
+      - email
+      properties:
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        last_name:
+          type: string
+        phone:
+          type: object
+          properties:
+            area_code:
+              type: string
+            number:
+              type: string
+        identification:
+          type: object
+          properties:
+            type:
+              type: string
+            number:
+              type: string
+        description:
+          type: string
+    Customer:
+      type: object
+      properties:
+        id:
+          type: string
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        last_name:
+          type: string
+        identification:
+          type: object
+          properties:
+            type:
+              type: string
+            number:
+              type: string
+        phone:
+          type: object
+          properties:
+            area_code:
+              type: string
+            number:
+              type: string
+        date_registered:
+          type: string
+          format: date-time
+        date_last_updated:
+          type: string
+          format: date-time
+        live_mode:
+          type: boolean
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: access_token
+      description: 'Mercado Pago access token. Send as `Authorization: Bearer {ACCESS_TOKEN}`.
+
+        HTTPS is required. Idempotency is supported via the `X-Idempotency-Key`
+
+        header on POST/PUT operations.
+
+        '
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://auth.mercadopago.com/authorization
+          tokenUrl: https://api.mercadopago.com/oauth/token
+          scopes:
+            offline_access: Persistent refresh token
+            read: Read merchant data
+            write: Write merchant data

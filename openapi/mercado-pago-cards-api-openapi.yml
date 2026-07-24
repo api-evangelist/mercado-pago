@@ -1,0 +1,186 @@
+openapi: 3.1.0
+info:
+  title: Mercado Pago REST Authentication Cards API
+  description: 'Mercado Pago REST API covering payments, Checkout Pro preferences,
+
+    subscriptions (preapprovals), customers, cards, merchant orders, Orders
+
+    API, refunds, chargebacks, claims, reports, Point (POS), QR, and OAuth.
+
+    All requests authenticate with a Bearer access token in the
+
+    `Authorization` header. Webhook deliveries are signed via the
+
+    `x-signature` and `x-request-id` headers.
+
+    '
+  version: v1
+  contact:
+    name: Mercado Pago Developers
+    url: https://www.mercadopago.com.br/developers/en/reference
+  license:
+    name: Mercado Pago Terms of Service
+    url: https://www.mercadopago.com.br/ayuda/terminos-y-politicas_299
+servers:
+- url: https://api.mercadopago.com
+  description: Mercado Pago Production API
+security:
+- bearerAuth: []
+tags:
+- name: Cards
+  description: Tokenised customer cards
+paths:
+  /v1/customers/{customer_id}/cards:
+    parameters:
+    - name: customer_id
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      tags:
+      - Cards
+      summary: Save A Card For A Customer
+      operationId: saveCustomerCard
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+              required:
+              - token
+      responses:
+        '201':
+          description: Card saved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Card'
+    get:
+      tags:
+      - Cards
+      summary: List Customer Cards
+      operationId: listCustomerCards
+      responses:
+        '200':
+          description: Cards
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Card'
+  /v1/customers/{customer_id}/cards/{card_id}:
+    parameters:
+    - name: customer_id
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: card_id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Cards
+      summary: Get A Customer Card
+      operationId: getCustomerCard
+      responses:
+        '200':
+          description: Card
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Card'
+    delete:
+      tags:
+      - Cards
+      summary: Delete A Customer Card
+      operationId: deleteCustomerCard
+      responses:
+        '200':
+          description: Deleted
+components:
+  schemas:
+    Card:
+      type: object
+      properties:
+        id:
+          type: string
+        customer_id:
+          type: string
+        expiration_month:
+          type: integer
+        expiration_year:
+          type: integer
+        first_six_digits:
+          type: string
+        last_four_digits:
+          type: string
+        payment_method:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+        security_code:
+          type: object
+          properties:
+            length:
+              type: integer
+            card_location:
+              type: string
+        issuer:
+          type: object
+          properties:
+            id:
+              type: integer
+            name:
+              type: string
+        cardholder:
+          type: object
+          properties:
+            name:
+              type: string
+            identification:
+              type: object
+              properties:
+                type:
+                  type: string
+                number:
+                  type: string
+        date_created:
+          type: string
+          format: date-time
+        date_last_updated:
+          type: string
+          format: date-time
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: access_token
+      description: 'Mercado Pago access token. Send as `Authorization: Bearer {ACCESS_TOKEN}`.
+
+        HTTPS is required. Idempotency is supported via the `X-Idempotency-Key`
+
+        header on POST/PUT operations.
+
+        '
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://auth.mercadopago.com/authorization
+          tokenUrl: https://api.mercadopago.com/oauth/token
+          scopes:
+            offline_access: Persistent refresh token
+            read: Read merchant data
+            write: Write merchant data

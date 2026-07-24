@@ -1,0 +1,266 @@
+openapi: 3.1.0
+info:
+  title: Mercado Pago REST Authentication Orders API
+  description: 'Mercado Pago REST API covering payments, Checkout Pro preferences,
+
+    subscriptions (preapprovals), customers, cards, merchant orders, Orders
+
+    API, refunds, chargebacks, claims, reports, Point (POS), QR, and OAuth.
+
+    All requests authenticate with a Bearer access token in the
+
+    `Authorization` header. Webhook deliveries are signed via the
+
+    `x-signature` and `x-request-id` headers.
+
+    '
+  version: v1
+  contact:
+    name: Mercado Pago Developers
+    url: https://www.mercadopago.com.br/developers/en/reference
+  license:
+    name: Mercado Pago Terms of Service
+    url: https://www.mercadopago.com.br/ayuda/terminos-y-politicas_299
+servers:
+- url: https://api.mercadopago.com
+  description: Mercado Pago Production API
+security:
+- bearerAuth: []
+tags:
+- name: Orders
+  description: Unified Orders API (next-generation checkout)
+paths:
+  /v1/orders:
+    post:
+      tags:
+      - Orders
+      summary: Create An Order
+      operationId: createOrder
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderRequest'
+      responses:
+        '201':
+          description: Order created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+  /v1/orders/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Orders
+      summary: Get An Order
+      operationId: getOrder
+      responses:
+        '200':
+          description: Order
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+  /v1/orders/{id}/capture:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      tags:
+      - Orders
+      summary: Capture An Order
+      operationId: captureOrder
+      responses:
+        '200':
+          description: Captured
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+  /v1/orders/{id}/cancel:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      tags:
+      - Orders
+      summary: Cancel An Order
+      operationId: cancelOrder
+      responses:
+        '200':
+          description: Cancelled
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+  /v1/orders/{id}/refund:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      tags:
+      - Orders
+      summary: Refund An Order
+      operationId: refundOrder
+      responses:
+        '200':
+          description: Refunded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+  /v1/orders/{id}/transactions:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      tags:
+      - Orders
+      summary: Add A Transaction To An Order
+      operationId: addOrderTransaction
+      responses:
+        '201':
+          description: Transaction added
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  schemas:
+    OrderRequest:
+      type: object
+      required:
+      - type
+      - total_amount
+      - external_reference
+      properties:
+        type:
+          type: string
+          enum:
+          - online
+          - point
+        external_reference:
+          type: string
+        total_amount:
+          type: string
+        capture_mode:
+          type: string
+          enum:
+          - automatic
+          - manual
+          default: automatic
+        processing_mode:
+          type: string
+          enum:
+          - automatic
+          - manual
+          default: automatic
+        payer:
+          $ref: '#/components/schemas/Payer'
+        transactions:
+          type: object
+          additionalProperties: true
+    Payer:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          enum:
+          - customer
+          - guest
+          - registered
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        last_name:
+          type: string
+        identification:
+          type: object
+          properties:
+            type:
+              type: string
+              example: CPF
+            number:
+              type: string
+    Order:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          enum:
+          - online
+          - point
+        external_reference:
+          type: string
+        total_amount:
+          type: string
+        status:
+          type: string
+          enum:
+          - created
+          - processed
+          - partially_processed
+          - action_required
+          - cancelled
+          - refunded
+        status_detail:
+          type: string
+        capture_mode:
+          type: string
+          enum:
+          - automatic
+          - manual
+        transactions:
+          type: object
+          properties:
+            payments:
+              type: array
+              items:
+                type: object
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: access_token
+      description: 'Mercado Pago access token. Send as `Authorization: Bearer {ACCESS_TOKEN}`.
+
+        HTTPS is required. Idempotency is supported via the `X-Idempotency-Key`
+
+        header on POST/PUT operations.
+
+        '
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://auth.mercadopago.com/authorization
+          tokenUrl: https://api.mercadopago.com/oauth/token
+          scopes:
+            offline_access: Persistent refresh token
+            read: Read merchant data
+            write: Write merchant data

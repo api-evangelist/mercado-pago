@@ -1,0 +1,218 @@
+openapi: 3.1.0
+info:
+  title: Mercado Pago REST Authentication Subscriptions API
+  description: 'Mercado Pago REST API covering payments, Checkout Pro preferences,
+
+    subscriptions (preapprovals), customers, cards, merchant orders, Orders
+
+    API, refunds, chargebacks, claims, reports, Point (POS), QR, and OAuth.
+
+    All requests authenticate with a Bearer access token in the
+
+    `Authorization` header. Webhook deliveries are signed via the
+
+    `x-signature` and `x-request-id` headers.
+
+    '
+  version: v1
+  contact:
+    name: Mercado Pago Developers
+    url: https://www.mercadopago.com.br/developers/en/reference
+  license:
+    name: Mercado Pago Terms of Service
+    url: https://www.mercadopago.com.br/ayuda/terminos-y-politicas_299
+servers:
+- url: https://api.mercadopago.com
+  description: Mercado Pago Production API
+security:
+- bearerAuth: []
+tags:
+- name: Subscriptions
+  description: Recurring preapproval subscriptions
+paths:
+  /preapproval:
+    post:
+      tags:
+      - Subscriptions
+      summary: Create A Subscription
+      operationId: createSubscription
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriptionRequest'
+      responses:
+        '201':
+          description: Subscription created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subscription'
+  /preapproval/search:
+    get:
+      tags:
+      - Subscriptions
+      summary: Search Subscriptions
+      operationId: searchSubscriptions
+      responses:
+        '200':
+          description: Search results
+          content:
+            application/json:
+              schema:
+                type: object
+  /preapproval/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Subscriptions
+      summary: Get A Subscription
+      operationId: getSubscription
+      responses:
+        '200':
+          description: Subscription
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subscription'
+    put:
+      tags:
+      - Subscriptions
+      summary: Update A Subscription
+      operationId: updateSubscription
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Updated subscription
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subscription'
+components:
+  schemas:
+    SubscriptionRequest:
+      type: object
+      required:
+      - reason
+      - auto_recurring
+      - payer_email
+      properties:
+        preapproval_plan_id:
+          type: string
+        reason:
+          type: string
+        external_reference:
+          type: string
+        payer_email:
+          type: string
+          format: email
+        card_token_id:
+          type: string
+        back_url:
+          type: string
+          format: uri
+        status:
+          type: string
+          enum:
+          - authorized
+          - pending
+        auto_recurring:
+          $ref: '#/components/schemas/AutoRecurring'
+    AutoRecurring:
+      type: object
+      properties:
+        frequency:
+          type: integer
+        frequency_type:
+          type: string
+          enum:
+          - days
+          - months
+        start_date:
+          type: string
+          format: date-time
+        end_date:
+          type: string
+          format: date-time
+        transaction_amount:
+          type: number
+          format: double
+        currency_id:
+          type: string
+          example: BRL
+        free_trial:
+          type: object
+          properties:
+            frequency:
+              type: integer
+            frequency_type:
+              type: string
+    Subscription:
+      type: object
+      properties:
+        id:
+          type: string
+        payer_id:
+          type: integer
+        payer_email:
+          type: string
+          format: email
+        back_url:
+          type: string
+          format: uri
+        reason:
+          type: string
+        external_reference:
+          type: string
+        status:
+          type: string
+          enum:
+          - pending
+          - authorized
+          - paused
+          - cancelled
+          - finished
+        date_created:
+          type: string
+          format: date-time
+        last_modified:
+          type: string
+          format: date-time
+        next_payment_date:
+          type: string
+          format: date-time
+        auto_recurring:
+          $ref: '#/components/schemas/AutoRecurring'
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: access_token
+      description: 'Mercado Pago access token. Send as `Authorization: Bearer {ACCESS_TOKEN}`.
+
+        HTTPS is required. Idempotency is supported via the `X-Idempotency-Key`
+
+        header on POST/PUT operations.
+
+        '
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://auth.mercadopago.com/authorization
+          tokenUrl: https://api.mercadopago.com/oauth/token
+          scopes:
+            offline_access: Persistent refresh token
+            read: Read merchant data
+            write: Write merchant data

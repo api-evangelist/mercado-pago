@@ -1,0 +1,160 @@
+openapi: 3.1.0
+info:
+  title: Mercado Pago REST Authentication Refunds API
+  description: 'Mercado Pago REST API covering payments, Checkout Pro preferences,
+
+    subscriptions (preapprovals), customers, cards, merchant orders, Orders
+
+    API, refunds, chargebacks, claims, reports, Point (POS), QR, and OAuth.
+
+    All requests authenticate with a Bearer access token in the
+
+    `Authorization` header. Webhook deliveries are signed via the
+
+    `x-signature` and `x-request-id` headers.
+
+    '
+  version: v1
+  contact:
+    name: Mercado Pago Developers
+    url: https://www.mercadopago.com.br/developers/en/reference
+  license:
+    name: Mercado Pago Terms of Service
+    url: https://www.mercadopago.com.br/ayuda/terminos-y-politicas_299
+servers:
+- url: https://api.mercadopago.com
+  description: Mercado Pago Production API
+security:
+- bearerAuth: []
+tags:
+- name: Refunds
+  description: Refund payments
+paths:
+  /v1/payments/{id}/refunds:
+    parameters:
+    - $ref: '#/components/parameters/PaymentId'
+    post:
+      tags:
+      - Refunds
+      summary: Refund A Payment
+      operationId: refundPayment
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefundRequest'
+      responses:
+        '201':
+          description: Refund created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Refund'
+    get:
+      tags:
+      - Refunds
+      summary: List Refunds For A Payment
+      operationId: listRefunds
+      responses:
+        '200':
+          description: Refunds list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Refund'
+  /v1/payments/{id}/refunds/{refund_id}:
+    parameters:
+    - $ref: '#/components/parameters/PaymentId'
+    - name: refund_id
+      in: path
+      required: true
+      schema:
+        type: integer
+    get:
+      tags:
+      - Refunds
+      summary: Get A Refund
+      operationId: getRefund
+      responses:
+        '200':
+          description: Refund
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Refund'
+components:
+  schemas:
+    RefundRequest:
+      type: object
+      properties:
+        amount:
+          type: number
+          format: double
+          description: Optional partial refund amount. Omit for a full refund.
+    Refund:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        payment_id:
+          type: integer
+          format: int64
+        amount:
+          type: number
+          format: double
+        source:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+            type:
+              type: string
+        date_created:
+          type: string
+          format: date-time
+        status:
+          type: string
+          enum:
+          - approved
+          - rejected
+          - in_process
+        unique_sequence_number:
+          type: string
+          nullable: true
+  parameters:
+    PaymentId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64
+        example: 1234567890
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: access_token
+      description: 'Mercado Pago access token. Send as `Authorization: Bearer {ACCESS_TOKEN}`.
+
+        HTTPS is required. Idempotency is supported via the `X-Idempotency-Key`
+
+        header on POST/PUT operations.
+
+        '
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://auth.mercadopago.com/authorization
+          tokenUrl: https://api.mercadopago.com/oauth/token
+          scopes:
+            offline_access: Persistent refresh token
+            read: Read merchant data
+            write: Write merchant data

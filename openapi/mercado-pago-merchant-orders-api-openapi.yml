@@ -1,0 +1,174 @@
+openapi: 3.1.0
+info:
+  title: Mercado Pago REST Authentication Merchant Orders API
+  description: 'Mercado Pago REST API covering payments, Checkout Pro preferences,
+
+    subscriptions (preapprovals), customers, cards, merchant orders, Orders
+
+    API, refunds, chargebacks, claims, reports, Point (POS), QR, and OAuth.
+
+    All requests authenticate with a Bearer access token in the
+
+    `Authorization` header. Webhook deliveries are signed via the
+
+    `x-signature` and `x-request-id` headers.
+
+    '
+  version: v1
+  contact:
+    name: Mercado Pago Developers
+    url: https://www.mercadopago.com.br/developers/en/reference
+  license:
+    name: Mercado Pago Terms of Service
+    url: https://www.mercadopago.com.br/ayuda/terminos-y-politicas_299
+servers:
+- url: https://api.mercadopago.com
+  description: Mercado Pago Production API
+security:
+- bearerAuth: []
+tags:
+- name: Merchant Orders
+  description: Aggregated preference + payments order resource
+paths:
+  /merchant_orders:
+    post:
+      tags:
+      - Merchant Orders
+      summary: Create A Merchant Order
+      operationId: createMerchantOrder
+      responses:
+        '201':
+          description: Merchant order created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MerchantOrder'
+  /merchant_orders/search:
+    get:
+      tags:
+      - Merchant Orders
+      summary: Search Merchant Orders
+      operationId: searchMerchantOrders
+      responses:
+        '200':
+          description: Search results
+  /merchant_orders/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+    get:
+      tags:
+      - Merchant Orders
+      summary: Get A Merchant Order
+      operationId: getMerchantOrder
+      responses:
+        '200':
+          description: Merchant order
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MerchantOrder'
+    put:
+      tags:
+      - Merchant Orders
+      summary: Update A Merchant Order
+      operationId: updateMerchantOrder
+      responses:
+        '200':
+          description: Updated merchant order
+components:
+  schemas:
+    MerchantOrder:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        preference_id:
+          type: string
+        external_reference:
+          type: string
+        site_id:
+          type: string
+        status:
+          type: string
+          enum:
+          - opened
+          - closed
+          - expired
+        order_status:
+          type: string
+          enum:
+          - payment_required
+          - payment_in_process
+          - paid
+          - partially_paid
+          - partially_refunded
+          - refunded
+          - expired
+        total_amount:
+          type: number
+          format: double
+        paid_amount:
+          type: number
+          format: double
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/PreferenceItem'
+        payments:
+          type: array
+          items:
+            type: object
+    PreferenceItem:
+      type: object
+      required:
+      - title
+      - quantity
+      - unit_price
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        picture_url:
+          type: string
+          format: uri
+        category_id:
+          type: string
+        quantity:
+          type: integer
+          minimum: 1
+        currency_id:
+          type: string
+          example: BRL
+        unit_price:
+          type: number
+          format: double
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: access_token
+      description: 'Mercado Pago access token. Send as `Authorization: Bearer {ACCESS_TOKEN}`.
+
+        HTTPS is required. Idempotency is supported via the `X-Idempotency-Key`
+
+        header on POST/PUT operations.
+
+        '
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://auth.mercadopago.com/authorization
+          tokenUrl: https://api.mercadopago.com/oauth/token
+          scopes:
+            offline_access: Persistent refresh token
+            read: Read merchant data
+            write: Write merchant data

@@ -1,0 +1,160 @@
+openapi: 3.1.0
+info:
+  title: Mercado Pago REST Authentication Point API
+  description: 'Mercado Pago REST API covering payments, Checkout Pro preferences,
+
+    subscriptions (preapprovals), customers, cards, merchant orders, Orders
+
+    API, refunds, chargebacks, claims, reports, Point (POS), QR, and OAuth.
+
+    All requests authenticate with a Bearer access token in the
+
+    `Authorization` header. Webhook deliveries are signed via the
+
+    `x-signature` and `x-request-id` headers.
+
+    '
+  version: v1
+  contact:
+    name: Mercado Pago Developers
+    url: https://www.mercadopago.com.br/developers/en/reference
+  license:
+    name: Mercado Pago Terms of Service
+    url: https://www.mercadopago.com.br/ayuda/terminos-y-politicas_299
+servers:
+- url: https://api.mercadopago.com
+  description: Mercado Pago Production API
+security:
+- bearerAuth: []
+tags:
+- name: Point
+  description: In-person POS (stores, terminals)
+paths:
+  /v1/stores:
+    post:
+      tags:
+      - Point
+      summary: Create A Store
+      operationId: createStore
+      responses:
+        '201':
+          description: Store created
+    get:
+      tags:
+      - Point
+      summary: Search Stores
+      operationId: searchStores
+      responses:
+        '200':
+          description: Stores
+  /v1/stores/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+    get:
+      tags:
+      - Point
+      summary: Get A Store
+      operationId: getStore
+      responses:
+        '200':
+          description: Store
+    put:
+      tags:
+      - Point
+      summary: Update A Store
+      operationId: updateStore
+      responses:
+        '200':
+          description: Updated store
+    delete:
+      tags:
+      - Point
+      summary: Delete A Store
+      operationId: deleteStore
+      responses:
+        '200':
+          description: Deleted
+  /pos:
+    post:
+      tags:
+      - Point
+      summary: Create A Point Of Sale
+      operationId: createPos
+      responses:
+        '201':
+          description: POS created
+    get:
+      tags:
+      - Point
+      summary: Search Points Of Sale
+      operationId: searchPos
+      responses:
+        '200':
+          description: POS list
+  /pos/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+    get:
+      tags:
+      - Point
+      summary: Get A Point Of Sale
+      operationId: getPos
+      responses:
+        '200':
+          description: POS
+    put:
+      tags:
+      - Point
+      summary: Update A Point Of Sale
+      operationId: updatePos
+      responses:
+        '200':
+          description: Updated POS
+    delete:
+      tags:
+      - Point
+      summary: Delete A Point Of Sale
+      operationId: deletePos
+      responses:
+        '200':
+          description: Deleted
+  /point/integration-api/devices:
+    get:
+      tags:
+      - Point
+      summary: List Point Terminals
+      operationId: listTerminals
+      responses:
+        '200':
+          description: Terminals
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: access_token
+      description: 'Mercado Pago access token. Send as `Authorization: Bearer {ACCESS_TOKEN}`.
+
+        HTTPS is required. Idempotency is supported via the `X-Idempotency-Key`
+
+        header on POST/PUT operations.
+
+        '
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://auth.mercadopago.com/authorization
+          tokenUrl: https://api.mercadopago.com/oauth/token
+          scopes:
+            offline_access: Persistent refresh token
+            read: Read merchant data
+            write: Write merchant data

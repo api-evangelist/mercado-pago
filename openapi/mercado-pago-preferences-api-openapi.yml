@@ -1,0 +1,265 @@
+openapi: 3.1.0
+info:
+  title: Mercado Pago REST Authentication Preferences API
+  description: 'Mercado Pago REST API covering payments, Checkout Pro preferences,
+
+    subscriptions (preapprovals), customers, cards, merchant orders, Orders
+
+    API, refunds, chargebacks, claims, reports, Point (POS), QR, and OAuth.
+
+    All requests authenticate with a Bearer access token in the
+
+    `Authorization` header. Webhook deliveries are signed via the
+
+    `x-signature` and `x-request-id` headers.
+
+    '
+  version: v1
+  contact:
+    name: Mercado Pago Developers
+    url: https://www.mercadopago.com.br/developers/en/reference
+  license:
+    name: Mercado Pago Terms of Service
+    url: https://www.mercadopago.com.br/ayuda/terminos-y-politicas_299
+servers:
+- url: https://api.mercadopago.com
+  description: Mercado Pago Production API
+security:
+- bearerAuth: []
+tags:
+- name: Preferences
+  description: Checkout Pro preferences
+paths:
+  /checkout/preferences:
+    post:
+      tags:
+      - Preferences
+      summary: Create A Checkout Preference
+      operationId: createPreference
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PreferenceRequest'
+      responses:
+        '201':
+          description: Preference created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Preference'
+  /checkout/preferences/search:
+    get:
+      tags:
+      - Preferences
+      summary: Search Preferences
+      operationId: searchPreferences
+      responses:
+        '200':
+          description: Search results
+          content:
+            application/json:
+              schema:
+                type: object
+  /checkout/preferences/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Preferences
+      summary: Get A Preference
+      operationId: getPreference
+      responses:
+        '200':
+          description: Preference
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Preference'
+    put:
+      tags:
+      - Preferences
+      summary: Update A Preference
+      operationId: updatePreference
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PreferenceRequest'
+      responses:
+        '200':
+          description: Updated preference
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Preference'
+components:
+  schemas:
+    Preference:
+      type: object
+      properties:
+        id:
+          type: string
+        client_id:
+          type: string
+        collector_id:
+          type: integer
+        date_created:
+          type: string
+          format: date-time
+        external_reference:
+          type: string
+        init_point:
+          type: string
+          format: uri
+        sandbox_init_point:
+          type: string
+          format: uri
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/PreferenceItem'
+        payer:
+          $ref: '#/components/schemas/Payer'
+        back_urls:
+          type: object
+          properties:
+            success:
+              type: string
+              format: uri
+            pending:
+              type: string
+              format: uri
+            failure:
+              type: string
+              format: uri
+        auto_return:
+          type: string
+          enum:
+          - approved
+          - all
+        notification_url:
+          type: string
+          format: uri
+    PreferenceRequest:
+      type: object
+      required:
+      - items
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/PreferenceItem'
+        payer:
+          $ref: '#/components/schemas/Payer'
+        back_urls:
+          type: object
+          properties:
+            success:
+              type: string
+              format: uri
+            pending:
+              type: string
+              format: uri
+            failure:
+              type: string
+              format: uri
+        auto_return:
+          type: string
+          enum:
+          - approved
+          - all
+        notification_url:
+          type: string
+          format: uri
+        external_reference:
+          type: string
+        expires:
+          type: boolean
+        expiration_date_from:
+          type: string
+          format: date-time
+        expiration_date_to:
+          type: string
+          format: date-time
+    PreferenceItem:
+      type: object
+      required:
+      - title
+      - quantity
+      - unit_price
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        picture_url:
+          type: string
+          format: uri
+        category_id:
+          type: string
+        quantity:
+          type: integer
+          minimum: 1
+        currency_id:
+          type: string
+          example: BRL
+        unit_price:
+          type: number
+          format: double
+    Payer:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          enum:
+          - customer
+          - guest
+          - registered
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        last_name:
+          type: string
+        identification:
+          type: object
+          properties:
+            type:
+              type: string
+              example: CPF
+            number:
+              type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: access_token
+      description: 'Mercado Pago access token. Send as `Authorization: Bearer {ACCESS_TOKEN}`.
+
+        HTTPS is required. Idempotency is supported via the `X-Idempotency-Key`
+
+        header on POST/PUT operations.
+
+        '
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://auth.mercadopago.com/authorization
+          tokenUrl: https://api.mercadopago.com/oauth/token
+          scopes:
+            offline_access: Persistent refresh token
+            read: Read merchant data
+            write: Write merchant data

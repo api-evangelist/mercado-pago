@@ -1,0 +1,348 @@
+openapi: 3.1.0
+info:
+  title: Mercado Pago REST Authentication Payments API
+  description: 'Mercado Pago REST API covering payments, Checkout Pro preferences,
+
+    subscriptions (preapprovals), customers, cards, merchant orders, Orders
+
+    API, refunds, chargebacks, claims, reports, Point (POS), QR, and OAuth.
+
+    All requests authenticate with a Bearer access token in the
+
+    `Authorization` header. Webhook deliveries are signed via the
+
+    `x-signature` and `x-request-id` headers.
+
+    '
+  version: v1
+  contact:
+    name: Mercado Pago Developers
+    url: https://www.mercadopago.com.br/developers/en/reference
+  license:
+    name: Mercado Pago Terms of Service
+    url: https://www.mercadopago.com.br/ayuda/terminos-y-politicas_299
+servers:
+- url: https://api.mercadopago.com
+  description: Mercado Pago Production API
+security:
+- bearerAuth: []
+tags:
+- name: Payments
+  description: Create, capture, refund, and search payments
+paths:
+  /v1/payments:
+    post:
+      tags:
+      - Payments
+      summary: Create A Payment
+      operationId: createPayment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentCreateRequest'
+      responses:
+        '201':
+          description: Payment created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'
+  /v1/payments/search:
+    get:
+      tags:
+      - Payments
+      summary: Search Payments
+      operationId: searchPayments
+      parameters:
+      - name: status
+        in: query
+        schema:
+          type: string
+      - name: external_reference
+        in: query
+        schema:
+          type: string
+      - name: range
+        in: query
+        schema:
+          type: string
+          enum:
+          - date_created
+          - date_approved
+          - date_last_updated
+      - name: begin_date
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - name: end_date
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          default: 30
+          maximum: 100
+      - name: offset
+        in: query
+        schema:
+          type: integer
+          default: 0
+      responses:
+        '200':
+          description: Search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentSearchResults'
+  /v1/payments/{id}:
+    parameters:
+    - $ref: '#/components/parameters/PaymentId'
+    get:
+      tags:
+      - Payments
+      summary: Get A Payment
+      operationId: getPayment
+      responses:
+        '200':
+          description: Payment
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'
+    put:
+      tags:
+      - Payments
+      summary: Update A Payment
+      description: Capture, cancel, or update payment metadata.
+      operationId: updatePayment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentUpdateRequest'
+      responses:
+        '200':
+          description: Updated payment
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'
+  /v1/payments/{id}/cancel:
+    parameters:
+    - $ref: '#/components/parameters/PaymentId'
+    put:
+      tags:
+      - Payments
+      summary: Cancel A Payment
+      operationId: cancelPayment
+      responses:
+        '200':
+          description: Cancelled
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'
+components:
+  schemas:
+    PaymentUpdateRequest:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - cancelled
+        capture:
+          type: boolean
+        transaction_amount:
+          type: number
+          format: double
+    PaymentCreateRequest:
+      type: object
+      required:
+      - transaction_amount
+      - payment_method_id
+      - payer
+      properties:
+        transaction_amount:
+          type: number
+          format: double
+        token:
+          type: string
+        description:
+          type: string
+        installments:
+          type: integer
+          minimum: 1
+          default: 1
+        payment_method_id:
+          type: string
+          example: visa
+        issuer_id:
+          type: string
+        external_reference:
+          type: string
+        statement_descriptor:
+          type: string
+        notification_url:
+          type: string
+          format: uri
+        capture:
+          type: boolean
+          default: true
+        binary_mode:
+          type: boolean
+          default: false
+        payer:
+          $ref: '#/components/schemas/Payer'
+        metadata:
+          type: object
+          additionalProperties: true
+    PaymentSearchResults:
+      type: object
+      properties:
+        paging:
+          type: object
+          properties:
+            total:
+              type: integer
+            limit:
+              type: integer
+            offset:
+              type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Payment'
+    Payer:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          enum:
+          - customer
+          - guest
+          - registered
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        last_name:
+          type: string
+        identification:
+          type: object
+          properties:
+            type:
+              type: string
+              example: CPF
+            number:
+              type: string
+    Payment:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        date_created:
+          type: string
+          format: date-time
+        date_approved:
+          type: string
+          format: date-time
+          nullable: true
+        date_last_updated:
+          type: string
+          format: date-time
+        money_release_date:
+          type: string
+          format: date-time
+          nullable: true
+        status:
+          type: string
+          enum:
+          - pending
+          - approved
+          - authorized
+          - in_process
+          - in_mediation
+          - rejected
+          - cancelled
+          - refunded
+          - charged_back
+        status_detail:
+          type: string
+        currency_id:
+          type: string
+          example: BRL
+        description:
+          type: string
+        transaction_amount:
+          type: number
+          format: double
+        transaction_amount_refunded:
+          type: number
+          format: double
+        payment_method_id:
+          type: string
+          example: pix
+        payment_type_id:
+          type: string
+          enum:
+          - credit_card
+          - debit_card
+          - ticket
+          - bank_transfer
+          - atm
+          - account_money
+          - digital_currency
+          - digital_wallet
+          - prepaid_card
+        installments:
+          type: integer
+        external_reference:
+          type: string
+        payer:
+          $ref: '#/components/schemas/Payer'
+        metadata:
+          type: object
+          additionalProperties: true
+  parameters:
+    PaymentId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64
+        example: 1234567890
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: access_token
+      description: 'Mercado Pago access token. Send as `Authorization: Bearer {ACCESS_TOKEN}`.
+
+        HTTPS is required. Idempotency is supported via the `X-Idempotency-Key`
+
+        header on POST/PUT operations.
+
+        '
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://auth.mercadopago.com/authorization
+          tokenUrl: https://api.mercadopago.com/oauth/token
+          scopes:
+            offline_access: Persistent refresh token
+            read: Read merchant data
+            write: Write merchant data
