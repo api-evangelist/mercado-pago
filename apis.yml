@@ -704,6 +704,17 @@ apis:
   - type: APIReference
     url: https://www.mercadopago.com.br/developers/en/reference
 common:
+  - type: IssueTracker
+    url: https://github.com/mercadopago/sdk-nodejs/issues
+  - type: Releases
+    url: https://github.com/mercadopago/sdk-nodejs/releases
+  - type: CodeOfConduct
+    url: https://github.com/mercadopago/sdk-nodejs/blob/master/CODE_OF_CONDUCT.md
+  - type: ContributionGuide
+    url: https://github.com/mercadopago/sdk-nodejs/blob/master/CONTRIBUTING.md
+  - type: License
+    name: MIT
+    url: https://github.com/mercadopago/sdk-nodejs/blob/master/LICENSE
   - type: AgenticAccess
     url: agentic-access/mercado-pago-agentic-access.yml
   - type: DomainSecurity
