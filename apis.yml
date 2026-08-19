@@ -59,7 +59,7 @@ tags:
   - Fintech
 url: >-
   https://raw.githubusercontent.com/api-evangelist/mercado-pago/refs/heads/main/apis.yml
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 apis:
 - aid: mercado-pago:checkout-pro
   name: Mercado Pago Checkout Pro
