@@ -1,0 +1,421 @@
+{
+  "item": [
+    {
+      "id": "5dcd78ae-ab1a-4e31-8d7f-a991c47e86f2",
+      "name": "Subscriptions",
+      "description": {
+        "content": "Recurring preapproval subscriptions",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "05a2745e-3899-4044-979d-9d5bd873016d",
+          "name": "Create A Subscription",
+          "request": {
+            "name": "Create A Subscription",
+            "description": {},
+            "url": {
+              "path": [
+                "preapproval"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reason\": \"<string>\",\n  \"auto_recurring\": {\n    \"frequency\": \"<integer>\",\n    \"frequency_type\": \"<string>\",\n    \"start_date\": \"<dateTime>\",\n    \"end_date\": \"<dateTime>\",\n    \"transaction_amount\": \"<double>\",\n    \"currency_id\": \"<string>\",\n    \"free_trial\": {\n      \"frequency\": \"<integer>\",\n      \"frequency_type\": \"<string>\"\n    }\n  },\n  \"payer_email\": \"<email>\",\n  \"preapproval_plan_id\": \"<string>\",\n  \"external_reference\": \"<string>\",\n  \"card_token_id\": \"<string>\",\n  \"back_url\": \"<uri>\",\n  \"status\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4d3d873d-d615-477a-b438-070b5759709b",
+              "name": "Subscription created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "preapproval"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reason\": \"<string>\",\n  \"auto_recurring\": {\n    \"frequency\": 1054,\n    \"frequency_type\": \"months\",\n    \"start_date\": \"1953-03-19T17:20:32.733Z\",\n    \"end_date\": \"1970-04-17T17:36:50.758Z\",\n    \"transaction_amount\": 9876.977310297298,\n    \"currency_id\": \"BRL\",\n    \"free_trial\": {\n      \"frequency\": 3002,\n      \"frequency_type\": \"string\"\n    }\n  },\n  \"payer_email\": \"<email>\",\n  \"preapproval_plan_id\": \"<string>\",\n  \"external_reference\": \"<string>\",\n  \"card_token_id\": \"<string>\",\n  \"back_url\": \"<uri>\",\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"payer_id\": 8675,\n  \"payer_email\": \"3mPvlxbFo@yNWNZX.smhl\",\n  \"back_url\": \"http://TdQO.mpjmS1grHu5Sb1-ChxeslRFuXc9Ti1K.+zAkR2HtNl,xLRneDC-KfWGMGp7EkF\",\n  \"reason\": \"string\",\n  \"external_reference\": \"string\",\n  \"status\": \"finished\",\n  \"date_created\": \"2007-08-26T08:05:28.179Z\",\n  \"last_modified\": \"2012-10-08T22:37:10.940Z\",\n  \"next_payment_date\": \"1963-07-07T08:26:55.594Z\",\n  \"auto_recurring\": {\n    \"frequency\": 2159,\n    \"frequency_type\": \"months\",\n    \"start_date\": \"1981-12-22T23:58:27.161Z\",\n    \"end_date\": \"1995-01-27T06:33:39.907Z\",\n    \"transaction_amount\": 9314.80873701513,\n    \"currency_id\": \"BRL\",\n    \"free_trial\": {\n      \"frequency\": 5674,\n      \"frequency_type\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2ecc0282-b003-4fa2-8437-bbb473fddbec",
+          "name": "Search Subscriptions",
+          "request": {
+            "name": "Search Subscriptions",
+            "description": {},
+            "url": {
+              "path": [
+                "preapproval",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "96e49e7c-20f7-45ec-a405-3ccdd62cb877",
+              "name": "Search results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "preapproval",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ad27e6e-53f4-4fd0-993a-0c98395de6b2",
+          "name": "Get A Subscription",
+          "request": {
+            "name": "Get A Subscription",
+            "description": {},
+            "url": {
+              "path": [
+                "preapproval",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "62a03836-b7ff-4e24-add0-708085abc600",
+              "name": "Subscription",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "preapproval",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"payer_id\": 8675,\n  \"payer_email\": \"3mPvlxbFo@yNWNZX.smhl\",\n  \"back_url\": \"http://TdQO.mpjmS1grHu5Sb1-ChxeslRFuXc9Ti1K.+zAkR2HtNl,xLRneDC-KfWGMGp7EkF\",\n  \"reason\": \"string\",\n  \"external_reference\": \"string\",\n  \"status\": \"finished\",\n  \"date_created\": \"2007-08-26T08:05:28.179Z\",\n  \"last_modified\": \"2012-10-08T22:37:10.940Z\",\n  \"next_payment_date\": \"1963-07-07T08:26:55.594Z\",\n  \"auto_recurring\": {\n    \"frequency\": 2159,\n    \"frequency_type\": \"months\",\n    \"start_date\": \"1981-12-22T23:58:27.161Z\",\n    \"end_date\": \"1995-01-27T06:33:39.907Z\",\n    \"transaction_amount\": 9314.80873701513,\n    \"currency_id\": \"BRL\",\n    \"free_trial\": {\n      \"frequency\": 5674,\n      \"frequency_type\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "01e82266-3371-4bce-b7cb-68db30a52fb6",
+          "name": "Update A Subscription",
+          "request": {
+            "name": "Update A Subscription",
+            "description": {},
+            "url": {
+              "path": [
+                "preapproval",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "36bf03e1-6aa7-43f2-91eb-5f63099f2be8",
+              "name": "Updated subscription",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "preapproval",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"payer_id\": 8675,\n  \"payer_email\": \"3mPvlxbFo@yNWNZX.smhl\",\n  \"back_url\": \"http://TdQO.mpjmS1grHu5Sb1-ChxeslRFuXc9Ti1K.+zAkR2HtNl,xLRneDC-KfWGMGp7EkF\",\n  \"reason\": \"string\",\n  \"external_reference\": \"string\",\n  \"status\": \"finished\",\n  \"date_created\": \"2007-08-26T08:05:28.179Z\",\n  \"last_modified\": \"2012-10-08T22:37:10.940Z\",\n  \"next_payment_date\": \"1963-07-07T08:26:55.594Z\",\n  \"auto_recurring\": {\n    \"frequency\": 2159,\n    \"frequency_type\": \"months\",\n    \"start_date\": \"1981-12-22T23:58:27.161Z\",\n    \"end_date\": \"1995-01-27T06:33:39.907Z\",\n    \"transaction_amount\": 9314.80873701513,\n    \"currency_id\": \"BRL\",\n    \"free_trial\": {\n      \"frequency\": 5674,\n      \"frequency_type\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.mercadopago.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d6ca241c-a8c4-4790-b846-9f7d4093c398",
+    "name": "Mercado Pago REST Authentication Subscriptions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Mercado Pago REST API covering payments, Checkout Pro preferences,\nsubscriptions (preapprovals), customers, cards, merchant orders, Orders\nAPI, refunds, chargebacks, claims, reports, Point (POS), QR, and OAuth.\nAll requests authenticate with a Bearer access token in the\n`Authorization` header. Webhook deliveries are signed via the\n`x-signature` and `x-request-id` headers.\n\n\nContact Support:\n Name: Mercado Pago Developers",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mercado Pago REST Authentication Orders API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create An Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mercadopago.com/v1/orders",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create An Order"
+        },
+        {
+          "info": {
+            "name": "Get An Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mercadopago.com/v1/orders/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get An Order"
+        },
+        {
+          "info": {
+            "name": "Capture An Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mercadopago.com/v1/orders/:id/capture",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Capture An Order"
+        },
+        {
+          "info": {
+            "name": "Cancel An Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mercadopago.com/v1/orders/:id/cancel",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Cancel An Order"
+        },
+        {
+          "info": {
+            "name": "Refund An Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mercadopago.com/v1/orders/:id/refund",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Refund An Order"
+        },
+        {
+          "info": {
+            "name": "Add A Transaction To An Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mercadopago.com/v1/orders/:id/transactions",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Add A Transaction To An Order"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

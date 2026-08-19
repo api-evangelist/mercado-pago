@@ -1,0 +1,285 @@
+{
+  "item": [
+    {
+      "id": "77e539bb-52cd-4c6f-ba80-4f35b42d39bd",
+      "name": "QR",
+      "description": {
+        "content": "QR-code in-person collection",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f73687e1-181c-4351-9770-988441bf25af",
+          "name": "Create A QR Order",
+          "request": {
+            "name": "Create A QR Order",
+            "description": {
+              "content": "Create or replace the QR order for an in-person point of sale.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "instore",
+                "qr",
+                "seller",
+                "collectors",
+                ":user_id",
+                "pos",
+                ":external_pos_id",
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "user_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "external_pos_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5d284a62-a229-40b3-b846-5ac5786ffbaf",
+              "name": "QR order created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instore",
+                    "qr",
+                    "seller",
+                    "collectors",
+                    ":user_id",
+                    "pos",
+                    ":external_pos_id",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "user_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "external_pos_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d56a77d-e616-4284-a38c-a05e609a7d2e",
+          "name": "Delete A QR Order",
+          "request": {
+            "name": "Delete A QR Order",
+            "description": {},
+            "url": {
+              "path": [
+                "instore",
+                "qr",
+                "seller",
+                "collectors",
+                ":user_id",
+                "pos",
+                ":external_pos_id",
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "user_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "external_pos_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d4bfe328-96bb-4caf-881f-b4291c7ef25f",
+              "name": "QR order deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instore",
+                    "qr",
+                    "seller",
+                    "collectors",
+                    ":user_id",
+                    "pos",
+                    ":external_pos_id",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "user_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "external_pos_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.mercadopago.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "04a7bf4b-bc50-446f-8451-f3207cad5279",
+    "name": "Mercado Pago REST Authentication QR API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Mercado Pago REST API covering payments, Checkout Pro preferences,\nsubscriptions (preapprovals), customers, cards, merchant orders, Orders\nAPI, refunds, chargebacks, claims, reports, Point (POS), QR, and OAuth.\nAll requests authenticate with a Bearer access token in the\n`Authorization` header. Webhook deliveries are signed via the\n`x-signature` and `x-request-id` headers.\n\n\nContact Support:\n Name: Mercado Pago Developers",
+      "type": "text/plain"
+    }
+  }
+}

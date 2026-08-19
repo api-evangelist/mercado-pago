@@ -1,0 +1,362 @@
+{
+  "item": [
+    {
+      "id": "d8769378-0ad0-40f0-82e2-1171b3b1116a",
+      "name": "Plans",
+      "description": {
+        "content": "Subscription plans",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "342bd9ce-833f-400e-b45d-84772cd43b19",
+          "name": "Create A Subscription Plan",
+          "request": {
+            "name": "Create A Subscription Plan",
+            "description": {},
+            "url": {
+              "path": [
+                "preapproval_plan"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8301f413-a2fa-4ca9-aea8-dec3a845e3ff",
+              "name": "Plan created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "preapproval_plan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e452d806-ffe4-469a-914c-b2e3f0255211",
+          "name": "Search Subscription Plans",
+          "request": {
+            "name": "Search Subscription Plans",
+            "description": {},
+            "url": {
+              "path": [
+                "preapproval_plan",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1b8f9f25-c369-4c31-a038-88d1a37862a7",
+              "name": "Search results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "preapproval_plan",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8f2d83e7-3369-4512-a2b1-17307cb16963",
+          "name": "Get A Subscription Plan",
+          "request": {
+            "name": "Get A Subscription Plan",
+            "description": {},
+            "url": {
+              "path": [
+                "preapproval_plan",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c2865364-3760-459e-abb9-5e18d6999ac6",
+              "name": "Plan",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "preapproval_plan",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9c718b8e-507e-4e57-b5bb-9bd01a5161ae",
+          "name": "Update A Subscription Plan",
+          "request": {
+            "name": "Update A Subscription Plan",
+            "description": {},
+            "url": {
+              "path": [
+                "preapproval_plan",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8016ed6a-c5ee-49a8-8167-98d18f68fb94",
+              "name": "Updated plan",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "preapproval_plan",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.mercadopago.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "565e5321-344c-4a7a-b186-a3f07370c7ac",
+    "name": "Mercado Pago REST Authentication Plans API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Mercado Pago REST API covering payments, Checkout Pro preferences,\nsubscriptions (preapprovals), customers, cards, merchant orders, Orders\nAPI, refunds, chargebacks, claims, reports, Point (POS), QR, and OAuth.\nAll requests authenticate with a Bearer access token in the\n`Authorization` header. Webhook deliveries are signed via the\n`x-signature` and `x-request-id` headers.\n\n\nContact Support:\n Name: Mercado Pago Developers",
+      "type": "text/plain"
+    }
+  }
+}

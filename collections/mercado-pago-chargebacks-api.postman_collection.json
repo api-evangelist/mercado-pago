@@ -1,0 +1,136 @@
+{
+  "item": [
+    {
+      "id": "91932270-e776-4d09-8783-2f3c43ac2c25",
+      "name": "Chargebacks",
+      "description": {
+        "content": "Read chargebacks and disputes",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c7d71dec-cd6e-48fc-b9b0-0e9e5d92d123",
+          "name": "Get A Chargeback",
+          "request": {
+            "name": "Get A Chargeback",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "chargebacks",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0fb10d60-3dab-496c-b4c7-681087a7aa2a",
+              "name": "Chargeback",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "chargebacks",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1580,\n  \"payments\": [\n    3868,\n    7313\n  ],\n  \"date_created\": \"1975-09-18T06:48:20.446Z\",\n  \"date_last_updated\": \"1963-12-25T12:43:48.613Z\",\n  \"currency_id\": \"string\",\n  \"amount\": 5029.299478483017,\n  \"status\": \"in_mediation\",\n  \"reason\": \"string\",\n  \"liable_party\": \"collector\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.mercadopago.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "41c0186a-6fe3-4ddf-8cf2-238b7437f8f4",
+    "name": "Mercado Pago REST Authentication Chargebacks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Mercado Pago REST API covering payments, Checkout Pro preferences,\nsubscriptions (preapprovals), customers, cards, merchant orders, Orders\nAPI, refunds, chargebacks, claims, reports, Point (POS), QR, and OAuth.\nAll requests authenticate with a Bearer access token in the\n`Authorization` header. Webhook deliveries are signed via the\n`x-signature` and `x-request-id` headers.\n\n\nContact Support:\n Name: Mercado Pago Developers",
+      "type": "text/plain"
+    }
+  }
+}

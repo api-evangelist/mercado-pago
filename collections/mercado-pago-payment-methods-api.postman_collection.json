@@ -1,0 +1,195 @@
+{
+  "item": [
+    {
+      "id": "f3bc5236-c179-4b30-89d9-22641bec7fae",
+      "name": "Payment Methods",
+      "description": {
+        "content": "Discover available payment methods",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2c6cfcbe-a24b-459b-bdf3-587dd8b96e88",
+          "name": "List Payment Methods",
+          "request": {
+            "name": "List Payment Methods",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "payment_methods"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c6f0b4fd-9d6f-4d27-b01d-120b01564760",
+              "name": "Payment methods",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "payment_methods"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"payment_type_id\": \"string\",\n    \"status\": \"string\",\n    \"secure_thumbnail\": \"https://BuqKCKoNjkosnSRdnYSyAPDMakOaiB.uvztCRkTI61O4N2ZAC3xOoLpekFhefEKyZAxN.T,N6jG+wG65K\",\n    \"thumbnail\": \"http://BWhONTNScpVDNMOrxkvZqVKsPhJpn.qtMjPqmTMtRYXHaaYzczX9RP-rd32tttebaad97G,9TWb2Ba1PT0pqeYjIhgAnfrXmWqZn4F\",\n    \"deferred_capture\": \"string\"\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"payment_type_id\": \"string\",\n    \"status\": \"string\",\n    \"secure_thumbnail\": \"https://taQhsTnnUKsUMHBJrqku.tglqvmRi,eBonudoJHGT,j0wyj1uPkbGhLgcwOmNXTWtHrDdW\",\n    \"thumbnail\": \"http://QtmewfAprDLzMIDvS.cooakxdKX7zV4P0stBumXAfCVeGwgjzQZJ,5I-JbT4XkIEn6tJ5FkHNs\",\n    \"deferred_capture\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "85ad3fae-5490-4dfe-9537-798ee19cf9cc",
+          "name": "List Identification Types",
+          "request": {
+            "name": "List Identification Types",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "identification_types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "edbe0df5-9468-49d9-94ec-8ad56cd7d414",
+              "name": "Identification types",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "identification_types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"type\": \"string\",\n    \"min_length\": 9899,\n    \"max_length\": 3117\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"type\": \"string\",\n    \"min_length\": 4885,\n    \"max_length\": 4324\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.mercadopago.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0d8cacbe-3d89-4240-a093-2d0d9aff0f21",
+    "name": "Mercado Pago REST Authentication Payment Methods API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Mercado Pago REST API covering payments, Checkout Pro preferences,\nsubscriptions (preapprovals), customers, cards, merchant orders, Orders\nAPI, refunds, chargebacks, claims, reports, Point (POS), QR, and OAuth.\nAll requests authenticate with a Bearer access token in the\n`Authorization` header. Webhook deliveries are signed via the\n`x-signature` and `x-request-id` headers.\n\n\nContact Support:\n Name: Mercado Pago Developers",
+      "type": "text/plain"
+    }
+  }
+}

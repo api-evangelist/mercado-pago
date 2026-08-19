@@ -1,0 +1,472 @@
+{
+  "item": [
+    {
+      "id": "6e17ef13-d29d-4c83-a4b3-b608ecb17f7a",
+      "name": "Cards",
+      "description": {
+        "content": "Tokenised customer cards",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "66e116db-0a49-4ff1-9694-12f1cac31314",
+          "name": "Save A Card For A Customer",
+          "request": {
+            "name": "Save A Card For A Customer",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "customers",
+                ":customer_id",
+                "cards"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customer_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"token\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a2205c2b-cd6f-4fe4-aba6-2cefe52a3246",
+              "name": "Card saved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "customers",
+                    ":customer_id",
+                    "cards"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customer_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"token\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"customer_id\": \"string\",\n  \"expiration_month\": 2624,\n  \"expiration_year\": 5949,\n  \"first_six_digits\": \"string\",\n  \"last_four_digits\": \"string\",\n  \"payment_method\": {\n    \"id\": \"string\",\n    \"name\": \"string\"\n  },\n  \"security_code\": {\n    \"length\": 8936,\n    \"card_location\": \"string\"\n  },\n  \"issuer\": {\n    \"id\": 6114,\n    \"name\": \"string\"\n  },\n  \"cardholder\": {\n    \"name\": \"string\",\n    \"identification\": {\n      \"type\": \"string\",\n      \"number\": \"string\"\n    }\n  },\n  \"date_created\": \"2016-01-30T17:36:53.444Z\",\n  \"date_last_updated\": \"2004-08-13T21:13:55.982Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1f53865f-6738-4e0c-b228-3f9e62045eb8",
+          "name": "List Customer Cards",
+          "request": {
+            "name": "List Customer Cards",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "customers",
+                ":customer_id",
+                "cards"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customer_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "94098613-6edd-47d0-afde-bdd1a4626e0b",
+              "name": "Cards",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "customers",
+                    ":customer_id",
+                    "cards"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customer_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"customer_id\": \"string\",\n    \"expiration_month\": 1833,\n    \"expiration_year\": 9571,\n    \"first_six_digits\": \"string\",\n    \"last_four_digits\": \"string\",\n    \"payment_method\": {\n      \"id\": \"string\",\n      \"name\": \"string\"\n    },\n    \"security_code\": {\n      \"length\": 3932,\n      \"card_location\": \"string\"\n    },\n    \"issuer\": {\n      \"id\": 7655,\n      \"name\": \"string\"\n    },\n    \"cardholder\": {\n      \"name\": \"string\",\n      \"identification\": {\n        \"type\": \"string\",\n        \"number\": \"string\"\n      }\n    },\n    \"date_created\": \"2016-11-22T16:51:06.086Z\",\n    \"date_last_updated\": \"2002-05-04T18:38:04.734Z\"\n  },\n  {\n    \"id\": \"string\",\n    \"customer_id\": \"string\",\n    \"expiration_month\": 5070,\n    \"expiration_year\": 4169,\n    \"first_six_digits\": \"string\",\n    \"last_four_digits\": \"string\",\n    \"payment_method\": {\n      \"id\": \"string\",\n      \"name\": \"string\"\n    },\n    \"security_code\": {\n      \"length\": 4261,\n      \"card_location\": \"string\"\n    },\n    \"issuer\": {\n      \"id\": 3583,\n      \"name\": \"string\"\n    },\n    \"cardholder\": {\n      \"name\": \"string\",\n      \"identification\": {\n        \"type\": \"string\",\n        \"number\": \"string\"\n      }\n    },\n    \"date_created\": \"1994-05-02T21:05:44.364Z\",\n    \"date_last_updated\": \"1999-04-29T03:34:18.434Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "37ed4e09-0088-466d-83e6-ac8be0a172cb",
+          "name": "Get A Customer Card",
+          "request": {
+            "name": "Get A Customer Card",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "customers",
+                ":customer_id",
+                "cards",
+                ":card_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customer_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "card_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a12cbf92-315f-40c1-af4b-c5319981daeb",
+              "name": "Card",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "customers",
+                    ":customer_id",
+                    "cards",
+                    ":card_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customer_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "card_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"customer_id\": \"string\",\n  \"expiration_month\": 2624,\n  \"expiration_year\": 5949,\n  \"first_six_digits\": \"string\",\n  \"last_four_digits\": \"string\",\n  \"payment_method\": {\n    \"id\": \"string\",\n    \"name\": \"string\"\n  },\n  \"security_code\": {\n    \"length\": 8936,\n    \"card_location\": \"string\"\n  },\n  \"issuer\": {\n    \"id\": 6114,\n    \"name\": \"string\"\n  },\n  \"cardholder\": {\n    \"name\": \"string\",\n    \"identification\": {\n      \"type\": \"string\",\n      \"number\": \"string\"\n    }\n  },\n  \"date_created\": \"2016-01-30T17:36:53.444Z\",\n  \"date_last_updated\": \"2004-08-13T21:13:55.982Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5b63a094-5e48-4def-bc96-5033f136e50a",
+          "name": "Delete A Customer Card",
+          "request": {
+            "name": "Delete A Customer Card",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "customers",
+                ":customer_id",
+                "cards",
+                ":card_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customer_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "card_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aee1b40e-807a-4038-b01b-28746283572d",
+              "name": "Deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "customers",
+                    ":customer_id",
+                    "cards",
+                    ":card_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customer_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "card_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.mercadopago.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0c9fc21c-d631-4b40-8384-5ff0dafc2f5c",
+    "name": "Mercado Pago REST Authentication Cards API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Mercado Pago REST API covering payments, Checkout Pro preferences,\nsubscriptions (preapprovals), customers, cards, merchant orders, Orders\nAPI, refunds, chargebacks, claims, reports, Point (POS), QR, and OAuth.\nAll requests authenticate with a Bearer access token in the\n`Authorization` header. Webhook deliveries are signed via the\n`x-signature` and `x-request-id` headers.\n\n\nContact Support:\n Name: Mercado Pago Developers",
+      "type": "text/plain"
+    }
+  }
+}

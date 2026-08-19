@@ -1,0 +1,86 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mercado Pago REST Authentication Plans API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Plans",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create A Subscription Plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mercadopago.com/preapproval_plan",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create A Subscription Plan"
+        },
+        {
+          "info": {
+            "name": "Search Subscription Plans",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mercadopago.com/preapproval_plan/search"
+          },
+          "docs": "Search Subscription Plans"
+        },
+        {
+          "info": {
+            "name": "Get A Subscription Plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mercadopago.com/preapproval_plan/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get A Subscription Plan"
+        },
+        {
+          "info": {
+            "name": "Update A Subscription Plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mercadopago.com/preapproval_plan/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update A Subscription Plan"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

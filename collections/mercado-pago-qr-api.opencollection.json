@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mercado Pago REST Authentication QR API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "QR",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create A QR Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mercadopago.com/instore/qr/seller/collectors/:user_id/pos/:external_pos_id/orders",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "external_pos_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or replace the QR order for an in-person point of sale."
+        },
+        {
+          "info": {
+            "name": "Delete A QR Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mercadopago.com/instore/qr/seller/collectors/:user_id/pos/:external_pos_id/orders",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "external_pos_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete A QR Order"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

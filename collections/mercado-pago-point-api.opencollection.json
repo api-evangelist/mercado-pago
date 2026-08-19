@@ -1,0 +1,187 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mercado Pago REST Authentication Point API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Point",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Stores",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mercadopago.com/v1/stores"
+          },
+          "docs": "Search Stores"
+        },
+        {
+          "info": {
+            "name": "Create A Store",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mercadopago.com/v1/stores"
+          },
+          "docs": "Create A Store"
+        },
+        {
+          "info": {
+            "name": "Get A Store",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mercadopago.com/v1/stores/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get A Store"
+        },
+        {
+          "info": {
+            "name": "Update A Store",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mercadopago.com/v1/stores/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update A Store"
+        },
+        {
+          "info": {
+            "name": "Delete A Store",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mercadopago.com/v1/stores/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete A Store"
+        },
+        {
+          "info": {
+            "name": "Search Points Of Sale",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mercadopago.com/pos"
+          },
+          "docs": "Search Points Of Sale"
+        },
+        {
+          "info": {
+            "name": "Create A Point Of Sale",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mercadopago.com/pos"
+          },
+          "docs": "Create A Point Of Sale"
+        },
+        {
+          "info": {
+            "name": "Get A Point Of Sale",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mercadopago.com/pos/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get A Point Of Sale"
+        },
+        {
+          "info": {
+            "name": "Update A Point Of Sale",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.mercadopago.com/pos/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update A Point Of Sale"
+        },
+        {
+          "info": {
+            "name": "Delete A Point Of Sale",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mercadopago.com/pos/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete A Point Of Sale"
+        },
+        {
+          "info": {
+            "name": "List Point Terminals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mercadopago.com/point/integration-api/devices"
+          },
+          "docs": "List Point Terminals"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

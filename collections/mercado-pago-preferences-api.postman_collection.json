@@ -1,0 +1,429 @@
+{
+  "item": [
+    {
+      "id": "fcab47bf-9053-4ae1-ac83-ad564b719b4c",
+      "name": "Preferences",
+      "description": {
+        "content": "Checkout Pro preferences",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8d8a4e75-dc05-4895-9b83-767e9e7fa648",
+          "name": "Create A Checkout Preference",
+          "request": {
+            "name": "Create A Checkout Preference",
+            "description": {},
+            "url": {
+              "path": [
+                "checkout",
+                "preferences"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"items\": [\n    {\n      \"title\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"unit_price\": \"<double>\",\n      \"id\": \"<string>\",\n      \"description\": \"<string>\",\n      \"picture_url\": \"<uri>\",\n      \"category_id\": \"<string>\",\n      \"currency_id\": \"<string>\"\n    },\n    {\n      \"title\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"unit_price\": \"<double>\",\n      \"id\": \"<string>\",\n      \"description\": \"<string>\",\n      \"picture_url\": \"<uri>\",\n      \"category_id\": \"<string>\",\n      \"currency_id\": \"<string>\"\n    }\n  ],\n  \"payer\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"email\": \"<email>\",\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"identification\": {\n      \"type\": \"<string>\",\n      \"number\": \"<string>\"\n    }\n  },\n  \"back_urls\": {\n    \"success\": \"<uri>\",\n    \"pending\": \"<uri>\",\n    \"failure\": \"<uri>\"\n  },\n  \"auto_return\": \"<string>\",\n  \"notification_url\": \"<uri>\",\n  \"external_reference\": \"<string>\",\n  \"expires\": \"<boolean>\",\n  \"expiration_date_from\": \"<dateTime>\",\n  \"expiration_date_to\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b2133c7d-7b16-4cc8-ae97-9c2425be6238",
+              "name": "Preference created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checkout",
+                    "preferences"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"items\": [\n    {\n      \"title\": \"string\",\n      \"quantity\": 5684,\n      \"unit_price\": 5291.080448570507,\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"picture_url\": \"https://fLh.ndbVr4.PyDUbfvjQyKWlVsVk7eQIrUoEQQtW\",\n      \"category_id\": \"string\",\n      \"currency_id\": \"BRL\"\n    },\n    {\n      \"title\": \"string\",\n      \"quantity\": 3013,\n      \"unit_price\": 3220.098045629045,\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"picture_url\": \"https://ccMwppcwpfiaygBUuigetJ.rvUKv6AjdhEgntKUTnrsFGY5fsMPxQ,Ff-4zDPUJdRhFHQ96\",\n      \"category_id\": \"string\",\n      \"currency_id\": \"BRL\"\n    }\n  ],\n  \"payer\": {\n    \"id\": \"string\",\n    \"type\": \"registered\",\n    \"email\": \"bJ5GoTucezLW@jjZoSWWCIZYcsXDDXsREwRZahNUygn.gb\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\",\n    \"identification\": {\n      \"type\": \"CPF\",\n      \"number\": \"string\"\n    }\n  },\n  \"back_urls\": {\n    \"success\": \"<uri>\",\n    \"pending\": \"<uri>\",\n    \"failure\": \"<uri>\"\n  },\n  \"auto_return\": \"<string>\",\n  \"notification_url\": \"<uri>\",\n  \"external_reference\": \"<string>\",\n  \"expires\": \"<boolean>\",\n  \"expiration_date_from\": \"<dateTime>\",\n  \"expiration_date_to\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"client_id\": \"string\",\n  \"collector_id\": 9016,\n  \"date_created\": \"2022-11-19T20:41:48.005Z\",\n  \"external_reference\": \"string\",\n  \"init_point\": \"http://InKhzhBuWURzI.hxbxAnjof2LepsCG\",\n  \"sandbox_init_point\": \"https://DlbvJajZuhih.tlwY5HOu5fSOfk-uO+RhN+ClIQ6gcBWk59yBDTXsX8v.dtltl51mBO4u\",\n  \"items\": [\n    {\n      \"title\": \"string\",\n      \"quantity\": 5715,\n      \"unit_price\": 7649.708797094631,\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"picture_url\": \"http://mKvXzMkqalTxDLzMj.ogzh0FVjvMHz-mvk6oCK\",\n      \"category_id\": \"string\",\n      \"currency_id\": \"BRL\"\n    },\n    {\n      \"title\": \"string\",\n      \"quantity\": 3535,\n      \"unit_price\": 76.314768759973,\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"picture_url\": \"http://txzZxCVQPgzWvsdjYoWdwN.vohwQuuuFgtTbEYnsykLpQj0wljCshXb8oFNNZfc3SvM+8KGCTWtpymmOUU\",\n      \"category_id\": \"string\",\n      \"currency_id\": \"BRL\"\n    }\n  ],\n  \"payer\": {\n    \"id\": \"string\",\n    \"type\": \"customer\",\n    \"email\": \"X4itM@TIGZbFMKKvzfhBFNEaHbWBkosY.dj\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\",\n    \"identification\": {\n      \"type\": \"CPF\",\n      \"number\": \"string\"\n    }\n  },\n  \"back_urls\": {\n    \"success\": \"https://mONdVdOrhcBGrurTT.koctqOsJQfgEuOLELY-eKtmDg91pQabepLuaBKNLBCROebNdBRPHPktE.thipquRMOu\",\n    \"pending\": \"http://Id.usrbjclFwgmPzhyrbeVX,j4g\",\n    \"failure\": \"https://vFDybHsT.nozpQ7p5KXvTqmtzv\"\n  },\n  \"auto_return\": \"approved\",\n  \"notification_url\": \"http://Cj.qebppA3ON8vb91Z8FM,OmQSMzo9ybvBYjynXqvuzQYFNoCwbQNn,ye\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c1772fd5-505d-446e-8d3b-f76e14c99017",
+          "name": "Search Preferences",
+          "request": {
+            "name": "Search Preferences",
+            "description": {},
+            "url": {
+              "path": [
+                "checkout",
+                "preferences",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8105e04a-402d-47f1-b0f6-30cbae03ad9c",
+              "name": "Search results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checkout",
+                    "preferences",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "26ccda30-c0ab-4dad-8b60-41f74b17ee70",
+          "name": "Get A Preference",
+          "request": {
+            "name": "Get A Preference",
+            "description": {},
+            "url": {
+              "path": [
+                "checkout",
+                "preferences",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "63e1133d-a53a-442e-9f7a-8dc4172c9628",
+              "name": "Preference",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checkout",
+                    "preferences",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"client_id\": \"string\",\n  \"collector_id\": 9016,\n  \"date_created\": \"2022-11-19T20:41:48.005Z\",\n  \"external_reference\": \"string\",\n  \"init_point\": \"http://InKhzhBuWURzI.hxbxAnjof2LepsCG\",\n  \"sandbox_init_point\": \"https://DlbvJajZuhih.tlwY5HOu5fSOfk-uO+RhN+ClIQ6gcBWk59yBDTXsX8v.dtltl51mBO4u\",\n  \"items\": [\n    {\n      \"title\": \"string\",\n      \"quantity\": 5715,\n      \"unit_price\": 7649.708797094631,\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"picture_url\": \"http://mKvXzMkqalTxDLzMj.ogzh0FVjvMHz-mvk6oCK\",\n      \"category_id\": \"string\",\n      \"currency_id\": \"BRL\"\n    },\n    {\n      \"title\": \"string\",\n      \"quantity\": 3535,\n      \"unit_price\": 76.314768759973,\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"picture_url\": \"http://txzZxCVQPgzWvsdjYoWdwN.vohwQuuuFgtTbEYnsykLpQj0wljCshXb8oFNNZfc3SvM+8KGCTWtpymmOUU\",\n      \"category_id\": \"string\",\n      \"currency_id\": \"BRL\"\n    }\n  ],\n  \"payer\": {\n    \"id\": \"string\",\n    \"type\": \"customer\",\n    \"email\": \"X4itM@TIGZbFMKKvzfhBFNEaHbWBkosY.dj\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\",\n    \"identification\": {\n      \"type\": \"CPF\",\n      \"number\": \"string\"\n    }\n  },\n  \"back_urls\": {\n    \"success\": \"https://mONdVdOrhcBGrurTT.koctqOsJQfgEuOLELY-eKtmDg91pQabepLuaBKNLBCROebNdBRPHPktE.thipquRMOu\",\n    \"pending\": \"http://Id.usrbjclFwgmPzhyrbeVX,j4g\",\n    \"failure\": \"https://vFDybHsT.nozpQ7p5KXvTqmtzv\"\n  },\n  \"auto_return\": \"approved\",\n  \"notification_url\": \"http://Cj.qebppA3ON8vb91Z8FM,OmQSMzo9ybvBYjynXqvuzQYFNoCwbQNn,ye\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "40b37f11-3ff3-40a6-b259-f0f3204459ca",
+          "name": "Update A Preference",
+          "request": {
+            "name": "Update A Preference",
+            "description": {},
+            "url": {
+              "path": [
+                "checkout",
+                "preferences",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"items\": [\n    {\n      \"title\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"unit_price\": \"<double>\",\n      \"id\": \"<string>\",\n      \"description\": \"<string>\",\n      \"picture_url\": \"<uri>\",\n      \"category_id\": \"<string>\",\n      \"currency_id\": \"<string>\"\n    },\n    {\n      \"title\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"unit_price\": \"<double>\",\n      \"id\": \"<string>\",\n      \"description\": \"<string>\",\n      \"picture_url\": \"<uri>\",\n      \"category_id\": \"<string>\",\n      \"currency_id\": \"<string>\"\n    }\n  ],\n  \"payer\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"email\": \"<email>\",\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"identification\": {\n      \"type\": \"<string>\",\n      \"number\": \"<string>\"\n    }\n  },\n  \"back_urls\": {\n    \"success\": \"<uri>\",\n    \"pending\": \"<uri>\",\n    \"failure\": \"<uri>\"\n  },\n  \"auto_return\": \"<string>\",\n  \"notification_url\": \"<uri>\",\n  \"external_reference\": \"<string>\",\n  \"expires\": \"<boolean>\",\n  \"expiration_date_from\": \"<dateTime>\",\n  \"expiration_date_to\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "feefc583-e927-4ccf-90a8-a18987152080",
+              "name": "Updated preference",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checkout",
+                    "preferences",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"items\": [\n    {\n      \"title\": \"string\",\n      \"quantity\": 5684,\n      \"unit_price\": 5291.080448570507,\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"picture_url\": \"https://fLh.ndbVr4.PyDUbfvjQyKWlVsVk7eQIrUoEQQtW\",\n      \"category_id\": \"string\",\n      \"currency_id\": \"BRL\"\n    },\n    {\n      \"title\": \"string\",\n      \"quantity\": 3013,\n      \"unit_price\": 3220.098045629045,\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"picture_url\": \"https://ccMwppcwpfiaygBUuigetJ.rvUKv6AjdhEgntKUTnrsFGY5fsMPxQ,Ff-4zDPUJdRhFHQ96\",\n      \"category_id\": \"string\",\n      \"currency_id\": \"BRL\"\n    }\n  ],\n  \"payer\": {\n    \"id\": \"string\",\n    \"type\": \"registered\",\n    \"email\": \"bJ5GoTucezLW@jjZoSWWCIZYcsXDDXsREwRZahNUygn.gb\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\",\n    \"identification\": {\n      \"type\": \"CPF\",\n      \"number\": \"string\"\n    }\n  },\n  \"back_urls\": {\n    \"success\": \"<uri>\",\n    \"pending\": \"<uri>\",\n    \"failure\": \"<uri>\"\n  },\n  \"auto_return\": \"<string>\",\n  \"notification_url\": \"<uri>\",\n  \"external_reference\": \"<string>\",\n  \"expires\": \"<boolean>\",\n  \"expiration_date_from\": \"<dateTime>\",\n  \"expiration_date_to\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"client_id\": \"string\",\n  \"collector_id\": 9016,\n  \"date_created\": \"2022-11-19T20:41:48.005Z\",\n  \"external_reference\": \"string\",\n  \"init_point\": \"http://InKhzhBuWURzI.hxbxAnjof2LepsCG\",\n  \"sandbox_init_point\": \"https://DlbvJajZuhih.tlwY5HOu5fSOfk-uO+RhN+ClIQ6gcBWk59yBDTXsX8v.dtltl51mBO4u\",\n  \"items\": [\n    {\n      \"title\": \"string\",\n      \"quantity\": 5715,\n      \"unit_price\": 7649.708797094631,\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"picture_url\": \"http://mKvXzMkqalTxDLzMj.ogzh0FVjvMHz-mvk6oCK\",\n      \"category_id\": \"string\",\n      \"currency_id\": \"BRL\"\n    },\n    {\n      \"title\": \"string\",\n      \"quantity\": 3535,\n      \"unit_price\": 76.314768759973,\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"picture_url\": \"http://txzZxCVQPgzWvsdjYoWdwN.vohwQuuuFgtTbEYnsykLpQj0wljCshXb8oFNNZfc3SvM+8KGCTWtpymmOUU\",\n      \"category_id\": \"string\",\n      \"currency_id\": \"BRL\"\n    }\n  ],\n  \"payer\": {\n    \"id\": \"string\",\n    \"type\": \"customer\",\n    \"email\": \"X4itM@TIGZbFMKKvzfhBFNEaHbWBkosY.dj\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\",\n    \"identification\": {\n      \"type\": \"CPF\",\n      \"number\": \"string\"\n    }\n  },\n  \"back_urls\": {\n    \"success\": \"https://mONdVdOrhcBGrurTT.koctqOsJQfgEuOLELY-eKtmDg91pQabepLuaBKNLBCROebNdBRPHPktE.thipquRMOu\",\n    \"pending\": \"http://Id.usrbjclFwgmPzhyrbeVX,j4g\",\n    \"failure\": \"https://vFDybHsT.nozpQ7p5KXvTqmtzv\"\n  },\n  \"auto_return\": \"approved\",\n  \"notification_url\": \"http://Cj.qebppA3ON8vb91Z8FM,OmQSMzo9ybvBYjynXqvuzQYFNoCwbQNn,ye\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.mercadopago.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bf2a0337-d503-43ca-8c38-2afbeec0f8fe",
+    "name": "Mercado Pago REST Authentication Preferences API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Mercado Pago REST API covering payments, Checkout Pro preferences,\nsubscriptions (preapprovals), customers, cards, merchant orders, Orders\nAPI, refunds, chargebacks, claims, reports, Point (POS), QR, and OAuth.\nAll requests authenticate with a Bearer access token in the\n`Authorization` header. Webhook deliveries are signed via the\n`x-signature` and `x-request-id` headers.\n\n\nContact Support:\n Name: Mercado Pago Developers",
+      "type": "text/plain"
+    }
+  }
+}

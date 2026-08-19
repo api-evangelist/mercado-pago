@@ -1,0 +1,359 @@
+{
+  "item": [
+    {
+      "id": "07210157-655c-47e4-bbd3-f3d3efa6cf99",
+      "name": "Merchant Orders",
+      "description": {
+        "content": "Aggregated preference + payments order resource",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3aff26a9-48a1-43b6-84af-7ca45d6a8af0",
+          "name": "Create A Merchant Order",
+          "request": {
+            "name": "Create A Merchant Order",
+            "description": {},
+            "url": {
+              "path": [
+                "merchant_orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "921bc76a-12ca-4089-bb0d-7a37f1391c96",
+              "name": "Merchant order created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant_orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6035,\n  \"preference_id\": \"string\",\n  \"external_reference\": \"string\",\n  \"site_id\": \"string\",\n  \"status\": \"expired\",\n  \"order_status\": \"expired\",\n  \"total_amount\": 2260.018922915492,\n  \"paid_amount\": 1184.2995136395984,\n  \"items\": [\n    {\n      \"title\": \"string\",\n      \"quantity\": 8630,\n      \"unit_price\": 7499.708237974058,\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"picture_url\": \"http://RRvxqnZsIMjPHrWPoDtZQuEPVYVzmh.mpuEGn6frXDcKE8Ap,rzWzEEBzt5SW-Q96bgcPOrnAVuX\",\n      \"category_id\": \"string\",\n      \"currency_id\": \"BRL\"\n    },\n    {\n      \"title\": \"string\",\n      \"quantity\": 2828,\n      \"unit_price\": 8148.7949363799,\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"picture_url\": \"https://SvRmvLZbBoRlritClwwyiDS.lpboy9b4FUgfG7LucIZY9qQWjS\",\n      \"category_id\": \"string\",\n      \"currency_id\": \"BRL\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "81661898-2c9f-4133-988f-a4ac9f2b78bd",
+          "name": "Search Merchant Orders",
+          "request": {
+            "name": "Search Merchant Orders",
+            "description": {},
+            "url": {
+              "path": [
+                "merchant_orders",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "de554d25-6e00-46b9-85b1-3353fc46bbd2",
+              "name": "Search results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant_orders",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "54abd079-6e15-421b-bbca-dedfa033fc67",
+          "name": "Get A Merchant Order",
+          "request": {
+            "name": "Get A Merchant Order",
+            "description": {},
+            "url": {
+              "path": [
+                "merchant_orders",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "416283bc-30a1-44b8-8327-c259842ca631",
+              "name": "Merchant order",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant_orders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6035,\n  \"preference_id\": \"string\",\n  \"external_reference\": \"string\",\n  \"site_id\": \"string\",\n  \"status\": \"expired\",\n  \"order_status\": \"expired\",\n  \"total_amount\": 2260.018922915492,\n  \"paid_amount\": 1184.2995136395984,\n  \"items\": [\n    {\n      \"title\": \"string\",\n      \"quantity\": 8630,\n      \"unit_price\": 7499.708237974058,\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"picture_url\": \"http://RRvxqnZsIMjPHrWPoDtZQuEPVYVzmh.mpuEGn6frXDcKE8Ap,rzWzEEBzt5SW-Q96bgcPOrnAVuX\",\n      \"category_id\": \"string\",\n      \"currency_id\": \"BRL\"\n    },\n    {\n      \"title\": \"string\",\n      \"quantity\": 2828,\n      \"unit_price\": 8148.7949363799,\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"picture_url\": \"https://SvRmvLZbBoRlritClwwyiDS.lpboy9b4FUgfG7LucIZY9qQWjS\",\n      \"category_id\": \"string\",\n      \"currency_id\": \"BRL\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "96eca690-08c0-4af3-a589-e0bf18762426",
+          "name": "Update A Merchant Order",
+          "request": {
+            "name": "Update A Merchant Order",
+            "description": {},
+            "url": {
+              "path": [
+                "merchant_orders",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "df0d29c4-8e0c-4918-8430-77381220fdd4",
+              "name": "Updated merchant order",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "merchant_orders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.mercadopago.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3f611404-f2f6-4b54-a543-f4a6276bd920",
+    "name": "Mercado Pago REST Authentication Merchant Orders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Mercado Pago REST API covering payments, Checkout Pro preferences,\nsubscriptions (preapprovals), customers, cards, merchant orders, Orders\nAPI, refunds, chargebacks, claims, reports, Point (POS), QR, and OAuth.\nAll requests authenticate with a Bearer access token in the\n`Authorization` header. Webhook deliveries are signed via the\n`x-signature` and `x-request-id` headers.\n\n\nContact Support:\n Name: Mercado Pago Developers",
+      "type": "text/plain"
+    }
+  }
+}
