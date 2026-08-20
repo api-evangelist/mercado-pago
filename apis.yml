@@ -39,6 +39,27 @@ x-type: company
 tags:
   - Payments
   - Checkout
+  - Subscription
+  - Point-of-Sale
+  - QR
+  - Pix
+  - SDK
+  - Wallets
+  - Acquiring
+  - Lending
+  - Issuing
+  - Latin America
+  - Brazil
+  - Argentina
+  - Mexico
+  - Chile
+  - Colombia
+  - Peru
+  - Uruguay
+  - Fintech
+tags_raw:
+  - Payments
+  - Checkout
   - Subscriptions
   - POS
   - QR
@@ -115,6 +136,11 @@ apis:
   humanURL: https://www.mercadopago.com.br/developers/en/reference/order/online-payments/create/post
   baseURL: https://api.mercadopago.com
   tags:
+  - Order
+  - Payments
+  - Transaction
+  - Unified-API
+  tags_raw:
   - Orders
   - Payments
   - Transactions
@@ -131,6 +157,11 @@ apis:
   humanURL: https://www.mercadopago.com.br/developers/en/docs/subscriptions/landing
   baseURL: https://api.mercadopago.com
   tags:
+  - Subscription
+  - Recurring
+  - Plans
+  - Preapproval
+  tags_raw:
   - Subscriptions
   - Recurring
   - Plans
@@ -146,6 +177,10 @@ apis:
   humanURL: https://www.mercadopago.com.br/developers/en/docs/payment-link/landing
   baseURL: https://api.mercadopago.com
   tags:
+  - Payment Links
+  - Collection
+  - No-Code
+  tags_raw:
   - Payment Links
   - Collection
   - No Code
@@ -176,6 +211,9 @@ apis:
     https://www.mercadopago.com.br/developers/en/reference/merchant_orders/_merchant_orders/post
   baseURL: https://api.mercadopago.com
   tags:
+  - Order
+  - Reconciliation
+  tags_raw:
   - Orders
   - Reconciliation
   properties:
@@ -191,6 +229,11 @@ apis:
   humanURL: https://www.mercadopago.com.br/developers/en/docs/mp-point/landing
   baseURL: https://api.mercadopago.com
   tags:
+  - Point-of-Sale
+  - In Person
+  - Card Reader
+  - Terminals
+  tags_raw:
   - POS
   - In Person
   - Card Reader
@@ -206,6 +249,11 @@ apis:
   humanURL: https://www.mercadopago.com.br/developers/en/docs/qr-payments/landing
   baseURL: https://api.mercadopago.com
   tags:
+  - QR
+  - In Person
+  - Collection
+  - Wallets
+  tags_raw:
   - QR
   - In Person
   - Collections
@@ -233,6 +281,11 @@ apis:
   humanURL: https://www.mercadopago.com.br/developers/en/reference/claims/_claims_id/get
   baseURL: https://api.mercadopago.com
   tags:
+  - Claims
+  - Mediation
+  - Disputes
+  - Post-Sale
+  tags_raw:
   - Claims
   - Mediation
   - Disputes
@@ -265,6 +318,10 @@ apis:
   humanURL: https://www.mercadopago.com.br/developers/en/docs/security/oauth/introduction
   baseURL: https://api.mercadopago.com
   tags:
+  - Authentication
+  - Marketplace
+  - Platform
+  tags_raw:
   - OAuth
   - Authentication
   - Marketplace
@@ -281,6 +338,11 @@ apis:
     https://www.mercadopago.com.br/developers/en/docs/your-integrations/notifications/webhooks
   baseURL: customer-configured
   tags:
+  - Webhook
+  - Event
+  - Notification
+  - Signed
+  tags_raw:
   - Webhooks
   - Events
   - Notifications
@@ -441,6 +503,11 @@ apis:
   baseURL: https://www.mercadopago.com.br/developers/en/docs/mcp-server/landing
   tags:
   - MCP
+  - Artificial Intelligence
+  - Agents
+  - Anthropic
+  tags_raw:
+  - MCP
   - AI
   - Agents
   - Anthropic
@@ -458,6 +525,11 @@ apis:
   - Plugin
   - WooCommerce
   - WordPress
+  - E-Commerce
+  tags_raw:
+  - Plugin
+  - WooCommerce
+  - WordPress
   - E-commerce
   properties:
   - type: Repository
@@ -472,6 +544,11 @@ apis:
   humanURL: https://github.com/mercadopago/n8n-nodes-mercadopago
   baseURL: https://github.com/mercadopago/n8n-nodes-mercadopago
   tags:
+  - n8n
+  - Workflows
+  - Automation
+  - Integration
+  tags_raw:
   - n8n
   - Workflow
   - Automation
@@ -569,6 +646,8 @@ apis:
   humanURL: https://www.mercadopago.com.br/developers/en/reference/payments/_payments/post
   baseURL: https://api.mercadopago.com
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI
@@ -695,6 +774,8 @@ apis:
   humanURL: https://www.mercadopago.com.br/developers/en/reference/payments/_payments/post
   baseURL: https://api.mercadopago.com
   tags:
+  - Subscription
+  tags_raw:
   - Subscriptions
   properties:
   - type: OpenAPI
