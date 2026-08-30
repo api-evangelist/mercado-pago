@@ -54,9 +54,9 @@ tags:
   - Payments
   - Checkout
   - Subscription
-  - Point-of-Sale
+  - POS
   - QR
-  - Pix
+  - PIX
   - SDK
   - Wallets
   - Acquiring
@@ -193,7 +193,7 @@ apis:
   tags:
   - Payment Links
   - Collection
-  - No-Code
+  - No Code
   tags_raw:
   - Payment Links
   - Collection
@@ -243,7 +243,7 @@ apis:
   humanURL: https://www.mercadopago.com.br/developers/en/docs/mp-point/landing
   baseURL: https://api.mercadopago.com
   tags:
-  - Point-of-Sale
+  - POS
   - In Person
   - Card Reader
   - Terminals
@@ -298,7 +298,7 @@ apis:
   - Claims
   - Mediation
   - Disputes
-  - Post-Sale
+  - Post Sale
   tags_raw:
   - Claims
   - Mediation
