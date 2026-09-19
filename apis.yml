@@ -137,6 +137,11 @@ apis:
   tags:
   - Checkout
   - Card Payments
+  - 3D
+  - Installments
+  tags_raw:
+  - Checkout
+  - Card Payments
   - 3DS
   - Installments
   properties:
@@ -246,7 +251,7 @@ apis:
   - Point-of-Sale
   - In Person
   - Card Reader
-  - Terminals
+  - Terminal
   tags_raw:
   - POS
   - In Person
@@ -536,7 +541,7 @@ apis:
   humanURL: https://github.com/mercadopago/cart-woocommerce
   baseURL: https://github.com/mercadopago/cart-woocommerce
   tags:
-  - Plugin
+  - Plugins
   - WooCommerce
   - WordPress
   - E-Commerce
