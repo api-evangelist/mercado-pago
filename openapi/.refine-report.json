@@ -1,22 +1,7 @@
 {
   "provider": "mercado-pago",
   "sources": [
-    "mercado-pago-authentication-api-openapi.yml",
-    "mercado-pago-cards-api-openapi.yml",
-    "mercado-pago-chargebacks-api-openapi.yml",
-    "mercado-pago-claims-api-openapi.yml",
-    "mercado-pago-customers-api-openapi.yml",
-    "mercado-pago-merchant-orders-api-openapi.yml",
-    "mercado-pago-orders-api-openapi.yml",
-    "mercado-pago-payment-methods-api-openapi.yml",
-    "mercado-pago-payments-api-openapi.yml",
-    "mercado-pago-plans-api-openapi.yml",
-    "mercado-pago-point-api-openapi.yml",
-    "mercado-pago-preferences-api-openapi.yml",
-    "mercado-pago-qr-api-openapi.yml",
-    "mercado-pago-refunds-api-openapi.yml",
-    "mercado-pago-reports-api-openapi.yml",
-    "mercado-pago-subscriptions-api-openapi.yml"
+    "_original/mercado-pago-openapi.yml"
   ],
   "outputs": [
     "mercado-pago-authentication-api-openapi.yml",
@@ -39,6 +24,27 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "mercado-pago-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "mercado-pago-authentication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mercado-pago-cards-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mercado-pago-chargebacks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mercado-pago-claims-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mercado-pago-customers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mercado-pago-merchant-orders-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mercado-pago-orders-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mercado-pago-payment-methods-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mercado-pago-payments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mercado-pago-plans-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mercado-pago-point-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mercado-pago-preferences-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mercado-pago-qr-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mercado-pago-refunds-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mercado-pago-reports-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mercado-pago-subscriptions-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Mercado Pago REST Authentication Subscriptions API
+  title: Mercado Pago REST Subscriptions API
   description: 'Mercado Pago REST API covering payments, Checkout Pro preferences,
 
     subscriptions (preapprovals), customers, cards, merchant orders, Orders
@@ -11,9 +11,7 @@ info:
 
     `Authorization` header. Webhook deliveries are signed via the
 
-    `x-signature` and `x-request-id` headers.
-
-    '
+    `x-signature` and `x-request-id` headers.'
   version: v1
   contact:
     name: Mercado Pago Developers
@@ -101,63 +99,6 @@ paths:
                 $ref: '#/components/schemas/Subscription'
 components:
   schemas:
-    SubscriptionRequest:
-      type: object
-      required:
-      - reason
-      - auto_recurring
-      - payer_email
-      properties:
-        preapproval_plan_id:
-          type: string
-        reason:
-          type: string
-        external_reference:
-          type: string
-        payer_email:
-          type: string
-          format: email
-        card_token_id:
-          type: string
-        back_url:
-          type: string
-          format: uri
-        status:
-          type: string
-          enum:
-          - authorized
-          - pending
-        auto_recurring:
-          $ref: '#/components/schemas/AutoRecurring'
-    AutoRecurring:
-      type: object
-      properties:
-        frequency:
-          type: integer
-        frequency_type:
-          type: string
-          enum:
-          - days
-          - months
-        start_date:
-          type: string
-          format: date-time
-        end_date:
-          type: string
-          format: date-time
-        transaction_amount:
-          type: number
-          format: double
-        currency_id:
-          type: string
-          example: BRL
-        free_trial:
-          type: object
-          properties:
-            frequency:
-              type: integer
-            frequency_type:
-              type: string
     Subscription:
       type: object
       properties:
@@ -192,6 +133,63 @@ components:
         next_payment_date:
           type: string
           format: date-time
+        auto_recurring:
+          $ref: '#/components/schemas/AutoRecurring'
+    AutoRecurring:
+      type: object
+      properties:
+        frequency:
+          type: integer
+        frequency_type:
+          type: string
+          enum:
+          - days
+          - months
+        start_date:
+          type: string
+          format: date-time
+        end_date:
+          type: string
+          format: date-time
+        transaction_amount:
+          type: number
+          format: double
+        currency_id:
+          type: string
+          example: BRL
+        free_trial:
+          type: object
+          properties:
+            frequency:
+              type: integer
+            frequency_type:
+              type: string
+    SubscriptionRequest:
+      type: object
+      required:
+      - reason
+      - auto_recurring
+      - payer_email
+      properties:
+        preapproval_plan_id:
+          type: string
+        reason:
+          type: string
+        external_reference:
+          type: string
+        payer_email:
+          type: string
+          format: email
+        card_token_id:
+          type: string
+        back_url:
+          type: string
+          format: uri
+        status:
+          type: string
+          enum:
+          - authorized
+          - pending
         auto_recurring:
           $ref: '#/components/schemas/AutoRecurring'
   securitySchemes:
