@@ -85,34 +85,6 @@ paths:
           description: Updated customer
 components:
   schemas:
-    CustomerRequest:
-      type: object
-      required:
-      - email
-      properties:
-        email:
-          type: string
-          format: email
-        first_name:
-          type: string
-        last_name:
-          type: string
-        phone:
-          type: object
-          properties:
-            area_code:
-              type: string
-            number:
-              type: string
-        identification:
-          type: object
-          properties:
-            type:
-              type: string
-            number:
-              type: string
-        description:
-          type: string
     Customer:
       type: object
       properties:
@@ -147,6 +119,34 @@ components:
           format: date-time
         live_mode:
           type: boolean
+    CustomerRequest:
+      type: object
+      required:
+      - email
+      properties:
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        last_name:
+          type: string
+        phone:
+          type: object
+          properties:
+            area_code:
+              type: string
+            number:
+              type: string
+        identification:
+          type: object
+          properties:
+            type:
+              type: string
+            number:
+              type: string
+        description:
+          type: string
   securitySchemes:
     bearerAuth:
       type: http

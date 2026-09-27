@@ -149,32 +149,34 @@ paths:
                 $ref: '#/components/schemas/Payment'
 components:
   schemas:
-    Payer:
+    PaymentUpdateRequest:
       type: object
       properties:
-        id:
-          type: string
-        type:
+        status:
           type: string
           enum:
-          - customer
-          - guest
-          - registered
-        email:
-          type: string
-          format: email
-        first_name:
-          type: string
-        last_name:
-          type: string
-        identification:
+          - cancelled
+        capture:
+          type: boolean
+        transaction_amount:
+          type: number
+          format: double
+    PaymentSearchResults:
+      type: object
+      properties:
+        paging:
           type: object
           properties:
-            type:
-              type: string
-              example: CPF
-            number:
-              type: string
+            total:
+              type: integer
+            limit:
+              type: integer
+            offset:
+              type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Payment'
     Payment:
       type: object
       properties:
@@ -244,34 +246,32 @@ components:
         metadata:
           type: object
           additionalProperties: true
-    PaymentUpdateRequest:
+    Payer:
       type: object
       properties:
-        status:
+        id:
+          type: string
+        type:
           type: string
           enum:
-          - cancelled
-        capture:
-          type: boolean
-        transaction_amount:
-          type: number
-          format: double
-    PaymentSearchResults:
-      type: object
-      properties:
-        paging:
+          - customer
+          - guest
+          - registered
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        last_name:
+          type: string
+        identification:
           type: object
           properties:
-            total:
-              type: integer
-            limit:
-              type: integer
-            offset:
-              type: integer
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Payment'
+            type:
+              type: string
+              example: CPF
+            number:
+              type: string
     PaymentCreateRequest:
       type: object
       required:

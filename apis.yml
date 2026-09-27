@@ -158,12 +158,13 @@ apis:
   - Order
   - Payments
   - Transaction
-  - Unified-API
+  - Unified API
   tags_raw:
   - Orders
   - Payments
   - Transactions
   - Unified API
+  - Unified-API
   properties:
   - type: Documentation
     url: https://www.mercadopago.com.br/developers/en/docs/checkout-api/landing

@@ -135,6 +135,34 @@ components:
           format: date-time
         auto_recurring:
           $ref: '#/components/schemas/AutoRecurring'
+    SubscriptionRequest:
+      type: object
+      required:
+      - reason
+      - auto_recurring
+      - payer_email
+      properties:
+        preapproval_plan_id:
+          type: string
+        reason:
+          type: string
+        external_reference:
+          type: string
+        payer_email:
+          type: string
+          format: email
+        card_token_id:
+          type: string
+        back_url:
+          type: string
+          format: uri
+        status:
+          type: string
+          enum:
+          - authorized
+          - pending
+        auto_recurring:
+          $ref: '#/components/schemas/AutoRecurring'
     AutoRecurring:
       type: object
       properties:
@@ -164,34 +192,6 @@ components:
               type: integer
             frequency_type:
               type: string
-    SubscriptionRequest:
-      type: object
-      required:
-      - reason
-      - auto_recurring
-      - payer_email
-      properties:
-        preapproval_plan_id:
-          type: string
-        reason:
-          type: string
-        external_reference:
-          type: string
-        payer_email:
-          type: string
-          format: email
-        card_token_id:
-          type: string
-        back_url:
-          type: string
-          format: uri
-        status:
-          type: string
-          enum:
-          - authorized
-          - pending
-        auto_recurring:
-          $ref: '#/components/schemas/AutoRecurring'
   securitySchemes:
     bearerAuth:
       type: http
