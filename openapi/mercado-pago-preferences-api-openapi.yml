@@ -99,6 +99,32 @@ paths:
                 $ref: '#/components/schemas/Preference'
 components:
   schemas:
+    Payer:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          enum:
+          - customer
+          - guest
+          - registered
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        last_name:
+          type: string
+        identification:
+          type: object
+          properties:
+            type:
+              type: string
+              example: CPF
+            number:
+              type: string
     Preference:
       type: object
       properties:
@@ -145,59 +171,6 @@ components:
         notification_url:
           type: string
           format: uri
-    Payer:
-      type: object
-      properties:
-        id:
-          type: string
-        type:
-          type: string
-          enum:
-          - customer
-          - guest
-          - registered
-        email:
-          type: string
-          format: email
-        first_name:
-          type: string
-        last_name:
-          type: string
-        identification:
-          type: object
-          properties:
-            type:
-              type: string
-              example: CPF
-            number:
-              type: string
-    PreferenceItem:
-      type: object
-      required:
-      - title
-      - quantity
-      - unit_price
-      properties:
-        id:
-          type: string
-        title:
-          type: string
-        description:
-          type: string
-        picture_url:
-          type: string
-          format: uri
-        category_id:
-          type: string
-        quantity:
-          type: integer
-          minimum: 1
-        currency_id:
-          type: string
-          example: BRL
-        unit_price:
-          type: number
-          format: double
     PreferenceRequest:
       type: object
       required:
@@ -239,6 +212,33 @@ components:
         expiration_date_to:
           type: string
           format: date-time
+    PreferenceItem:
+      type: object
+      required:
+      - title
+      - quantity
+      - unit_price
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        picture_url:
+          type: string
+          format: uri
+        category_id:
+          type: string
+        quantity:
+          type: integer
+          minimum: 1
+        currency_id:
+          type: string
+          example: BRL
+        unit_price:
+          type: number
+          format: double
   securitySchemes:
     bearerAuth:
       type: http

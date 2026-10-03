@@ -148,35 +148,16 @@ paths:
               schema:
                 $ref: '#/components/schemas/Payment'
 components:
+  parameters:
+    PaymentId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64
+        example: 1234567890
   schemas:
-    PaymentUpdateRequest:
-      type: object
-      properties:
-        status:
-          type: string
-          enum:
-          - cancelled
-        capture:
-          type: boolean
-        transaction_amount:
-          type: number
-          format: double
-    PaymentSearchResults:
-      type: object
-      properties:
-        paging:
-          type: object
-          properties:
-            total:
-              type: integer
-            limit:
-              type: integer
-            offset:
-              type: integer
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Payment'
     Payment:
       type: object
       properties:
@@ -272,6 +253,34 @@ components:
               example: CPF
             number:
               type: string
+    PaymentUpdateRequest:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - cancelled
+        capture:
+          type: boolean
+        transaction_amount:
+          type: number
+          format: double
+    PaymentSearchResults:
+      type: object
+      properties:
+        paging:
+          type: object
+          properties:
+            total:
+              type: integer
+            limit:
+              type: integer
+            offset:
+              type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Payment'
     PaymentCreateRequest:
       type: object
       required:
@@ -313,15 +322,6 @@ components:
         metadata:
           type: object
           additionalProperties: true
-  parameters:
-    PaymentId:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: integer
-        format: int64
-        example: 1234567890
   securitySchemes:
     bearerAuth:
       type: http

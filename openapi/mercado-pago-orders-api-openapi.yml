@@ -144,39 +144,6 @@ paths:
                 type: object
 components:
   schemas:
-    OrderRequest:
-      type: object
-      required:
-      - type
-      - total_amount
-      - external_reference
-      properties:
-        type:
-          type: string
-          enum:
-          - online
-          - point
-        external_reference:
-          type: string
-        total_amount:
-          type: string
-        capture_mode:
-          type: string
-          enum:
-          - automatic
-          - manual
-          default: automatic
-        processing_mode:
-          type: string
-          enum:
-          - automatic
-          - manual
-          default: automatic
-        payer:
-          $ref: '#/components/schemas/Payer'
-        transactions:
-          type: object
-          additionalProperties: true
     Payer:
       type: object
       properties:
@@ -240,6 +207,39 @@ components:
               type: array
               items:
                 type: object
+    OrderRequest:
+      type: object
+      required:
+      - type
+      - total_amount
+      - external_reference
+      properties:
+        type:
+          type: string
+          enum:
+          - online
+          - point
+        external_reference:
+          type: string
+        total_amount:
+          type: string
+        capture_mode:
+          type: string
+          enum:
+          - automatic
+          - manual
+          default: automatic
+        processing_mode:
+          type: string
+          enum:
+          - automatic
+          - manual
+          default: automatic
+        payer:
+          $ref: '#/components/schemas/Payer'
+        transactions:
+          type: object
+          additionalProperties: true
   securitySchemes:
     bearerAuth:
       type: http

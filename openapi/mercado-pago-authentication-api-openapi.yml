@@ -49,26 +49,6 @@ paths:
                 $ref: '#/components/schemas/OAuthTokenResponse'
 components:
   schemas:
-    OAuthTokenResponse:
-      type: object
-      properties:
-        access_token:
-          type: string
-        token_type:
-          type: string
-          example: bearer
-        expires_in:
-          type: integer
-        scope:
-          type: string
-        user_id:
-          type: integer
-        refresh_token:
-          type: string
-        public_key:
-          type: string
-        live_mode:
-          type: boolean
     OAuthTokenRequest:
       type: object
       required:
@@ -93,6 +73,26 @@ components:
         redirect_uri:
           type: string
           format: uri
+    OAuthTokenResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+        token_type:
+          type: string
+          example: bearer
+        expires_in:
+          type: integer
+        scope:
+          type: string
+        user_id:
+          type: integer
+        refresh_token:
+          type: string
+        public_key:
+          type: string
+        live_mode:
+          type: boolean
   securitySchemes:
     bearerAuth:
       type: http
