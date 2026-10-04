@@ -805,6 +805,9 @@ apis:
   - type: APIReference
     url: https://www.mercadopago.com.br/developers/en/reference
 common:
+  - type: CapabilityMap
+    url: capabilities/mercado-pago-capability-edges.yml
+    name: Mercado Pago Business Capability Map
   - type: IssueTracker
     url: https://github.com/mercadopago/sdk-nodejs/issues
   - type: Releases
