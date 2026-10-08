@@ -142,3 +142,26 @@ notes:
   - Rates above are headline scaffold values for Brazil; specific merchant contracts vary.
   - Argentina, Mexico, Chile, Colombia, Peru, Uruguay each publish their own rate cards.
   - High-volume merchants negotiate bespoke pricing through Mercado Pago Sales.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - metered
+  units:
+  - transaction
+  plans:
+  - name: Developer Access
+    access: free
+    model: free
+    model_how: derived
+    units:
+    - other
+    periods: []
+  - name: Transaction Pricing (Brazil reference)
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - transaction
+    periods: []
