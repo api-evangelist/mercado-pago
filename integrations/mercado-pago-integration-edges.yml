@@ -174,11 +174,51 @@ edges:
     detected: '2026-10-19'
   detected_by: sweep-latam-open-finance.py
   first_seen: '2026-10-15'
+- partner_name: BCRA Registro de Proveedores de Servicios de Pago (PSP)
+  partner: null
+  partner_match: register
+  type: register
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.bcra.gob.ar/registro-de-proveedores-de-servicios-de-pago/
+  category: Argentine payment-service-provider registration (BCRA)
+  contract_reference:
+    register: BCRA Registro de Proveedores de Servicios de Pago (PSP)
+    spec_file: null
+    standard: null
+    role: licensed-participant
+    registrations:
+    - registered_name: MERCADOLIBRE S.R.L.
+      licences:
+      - Proveedor de Servicio de Pago que ofrece Cuenta de Pago
+      - Aceptador
+      - Agregador
+      - Administrador QR
+      register_country: AR
+      matched_domain: mercadopago.com
+      matched_by: domain
+      brand: MERCADO PAGO
+      register_id: CUIT 30703088534
+      identity: wikidata Q140390799 'Mercado Pago' P856 http://www.mercadopago.com
+    signal_note: 'participation only: a regulator registration / authorisation; no API conformance is published
+      by this register'
+    detected_by: sweep-argentina-fintech-registers.py
+    detected: '2026-10-21'
+    identity_source: wikidata P856 (labelled provenance step; Kin 2026-10-15 decision 1)
+  detected_by: sweep-argentina-fintech-registers.py
+  first_seen: '2026-10-21'
 generated: '2026-10-12'
 method: searched
 checked:
 - https://data.directory.openbankingbrasil.org.br/participants
 - https://www.bcb.gov.br/estabilidadefinanceira/participantespix
+- https://camarafintech.org/miembros/
+- https://www.bcra.gob.ar/entidades-financieras/
+- https://www.bcra.gob.ar/registro-de-proveedores-de-servicios-de-pago/
+- https://www.cnv.gov.ar/SitioWeb/RegistrosPublicos/Agentes
+- https://www.cnv.gov.ar/SitioWeb/RegistrosPublicos/Psav
+- https://www.coelsa.com.ar/
 source:
 - https://data.directory.openbankingbrasil.org.br/participants
 - https://www.bcb.gov.br/estabilidadefinanceira/participantespix
