@@ -208,6 +208,23 @@ edges:
     identity_source: wikidata P856 (labelled provenance step; Kin 2026-10-15 decision 1)
   detected_by: sweep-argentina-fintech-registers.py
   first_seen: '2026-10-21'
+- partner_name: Google Play Developer (Google Play SDK Index)
+  partner: google-play
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: Google Play SDK Index
+  evidence: https://play.google.com/sdks/details/com-mercadopago-android-px-checkout
+  mirror_of: google-play/integrations/google-play-integration-edges.yml
+  apps:
+  - com.mercadopago.android.px.checkout
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
+  category: mobile SDK (payments)
 generated: '2026-10-12'
 method: searched
 checked:
@@ -219,6 +236,7 @@ checked:
 - https://www.cnv.gov.ar/SitioWeb/RegistrosPublicos/Agentes
 - https://www.cnv.gov.ar/SitioWeb/RegistrosPublicos/Psav
 - https://www.coelsa.com.ar/
+- google-play/integrations/google-play-integration-edges.yml
 source:
 - https://data.directory.openbankingbrasil.org.br/participants
 - https://www.bcb.gov.br/estabilidadefinanceira/participantespix
