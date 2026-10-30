@@ -1,4 +1,4 @@
-# Mercado Pago (mercado-pago)
+# Mercado Pago
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,636 +66,247 @@
 
 Mercado Pago is the payments and financial-services arm of Mercado Libre, Latin America's largest e-commerce and fintech platform. Founded in 2003, it processes a substantial share of LatAm digital payments across Brazil (PIX, Boleto, cards), Argentina, Mexico (SPEI, OXXO), Chile, Colombia, Peru, and Uruguay, with consumer wallet, merchant acquiring, card issuing, lending, and crypto products layered on top. The developer portal at developers.mercadopago.com exposes a deep payments stack — Checkout Pro (hosted), Checkout Bricks (composable web components), Checkout API (full server-side control), Orders API (next-gen checkout), Subscriptions, Payment Links, Point (in-person card readers), and QR payments — backed by REST APIs and official SDKs in Node.js / TypeScript, Python, PHP, Ruby, Java, .NET, Go, iOS, and Android, plus a CLI, an MCP server for AI agents, e-commerce plugins (WooCommerce, VTEX, Tiendanube, Shopify), and an n8n integration. Regional developer portals (.com.ar, .com.br, .com.mx, .com.cl, .com.co, .com.pe, .com.uy) localise docs and pricing per LATAM market.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/mercado-pago/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/mercado-pago/refs/heads/main/apis.yml)
+**Areas:** Payments · Checkout · Subscription · Point-of-Sale · QR · Pix · SDK · Wallets · Acquiring · Lending · Issuing · Latin America
+
+## Mercado Pago on APIs.io
 
-## Scope
+Everything profiled for Mercado Pago is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/mercado-pago/](https://apis.io/providers/mercado-pago/)** — or go straight to one of the APIs or properties below.
 
-- **Type:** Index
-- **Position:** Producer
-- **Access:** 3rd-Party
+### APIs (44)
 
-## Tags
+- [Mercado Pago Checkout Pro](https://apis.io/apis/mercado-pago/checkout-pro/) — Hosted, pre-configured checkout experience. Merchants create a preference via API, then redirect the buyer to a Mercado Pago hosted page that handles UI,…
+- [Mercado Pago Checkout Bricks](https://apis.io/apis/mercado-pago/checkout-bricks/) — Composable web components ("bricks") merchants embed in their own UI — card form, wallet, payment-method picker, status screen, security code. Lets…
+- [Mercado Pago Checkout API](https://apis.io/apis/mercado-pago/checkout-api/) — Full server-side checkout control. Tokenise cards client-side, create a payment server-side, manage 3DS challenges, handle capture, refund, and installments…
+- [Mercado Pago Orders API](https://apis.io/apis/mercado-pago/orders/) — Next-generation unified Orders API consolidating payments, captures, refunds, and transactions under a single resource. Supports multi-method orders,…
+- [Mercado Pago Subscriptions API](https://apis.io/apis/mercado-pago/subscriptions/) — Recurring payment subscriptions (preapproval) with scheduling, shared plans, free trial, proration, and pause / resume / cancel. Supports both subscription…
+- [Mercado Pago Payment Links API](https://apis.io/apis/mercado-pago/payment-links/) — No-code / low-code link generation for collecting a one-off or recurring payment via shareable URL or button — SMS, WhatsApp, email, social.
+- [Mercado Pago Customers & Cards API](https://apis.io/apis/mercado-pago/customers-cards/) — Manage stored customers and tokenised cards for one-click and recurring payments. CRUD for customers, addresses, and card tokens.
+- [Mercado Pago Merchant Orders API](https://apis.io/apis/mercado-pago/merchant-orders/) — Aggregate a preference + its payments into a single merchant_order resource for reconciliation, multi-payment handling, and order lifecycle.
+- [Mercado Pago Point API (POS)](https://apis.io/apis/mercado-pago/point/) — Integrates merchant systems with Mercado Pago Point card readers for in-person payments. Push an amount to a paired terminal, manage stores, points-of-sale,…
+- [Mercado Pago QR API](https://apis.io/apis/mercado-pago/qr/) — Static and dynamic QR code APIs for in-person collection, with order-linked status retrieval and webhook callbacks. Underpins the Mercado Pago wallet QR pay…
+- [Mercado Pago Chargebacks API](https://apis.io/apis/mercado-pago/chargebacks/) — Retrieve and respond to chargebacks, including dispute reason codes and lifecycle states.
+- [Mercado Pago Claims & Disputes API](https://apis.io/apis/mercado-pago/claims/) — Post-sale claims, mediations, evidence upload, messages, and notification retrieval for resolving buyer disputes.
+- [Mercado Pago Reports API](https://apis.io/apis/mercado-pago/reports/) — Generate, configure, and download release / settlement / account-money reports for reconciliation and accounting.
+- [Mercado Pago OAuth 2.0 API](https://apis.io/apis/mercado-pago/oauth/) — OAuth 2.0 authorisation-code flow for platform integrations: marketplaces and partners obtain delegated access tokens on behalf of merchants.
+- [Mercado Pago Webhooks / Notifications](https://apis.io/apis/mercado-pago/webhooks/) — Event-driven notifications for payments, refunds, chargebacks, subscriptions, merchant orders, and account changes. Webhooks are signed with an x-signature…
+- [Mercado Pago Node.js SDK](https://apis.io/apis/mercado-pago/sdk-node/) — Official Node.js / TypeScript SDK wrapping the Mercado Pago REST APIs for payments, preferences, subscriptions, customers, cards, and merchant orders.
+- [Mercado Pago Python SDK](https://apis.io/apis/mercado-pago/sdk-python/) — Official Python SDK wrapping the Mercado Pago REST APIs.
+- [Mercado Pago PHP SDK](https://apis.io/apis/mercado-pago/sdk-php/) — Official PHP SDK wrapping the Mercado Pago REST APIs. Used by the WooCommerce plugin and most LATAM PHP merchant stacks.
+- [Mercado Pago Ruby SDK](https://apis.io/apis/mercado-pago/sdk-ruby/) — Official Ruby SDK wrapping the Mercado Pago REST APIs.
+- [Mercado Pago Java SDK](https://apis.io/apis/mercado-pago/sdk-java/) — Official Java SDK wrapping the Mercado Pago REST APIs.
+- [Mercado Pago .NET SDK](https://apis.io/apis/mercado-pago/sdk-dotnet/) — Official .NET / C# SDK wrapping the Mercado Pago REST APIs.
+- [Mercado Pago Go SDK](https://apis.io/apis/mercado-pago/sdk-go/) — Official Go SDK for the Mercado Pago REST APIs.
+- [Mercado Pago iOS SDK](https://apis.io/apis/mercado-pago/sdk-ios/) — Official iOS / Swift mobile SDK providing card tokenisation, hosted payment screens, and Checkout integration for native iOS apps.
+- [Mercado Pago Android SDK](https://apis.io/apis/mercado-pago/sdk-android/) — Official Android / Kotlin mobile SDK for tokenisation, payment screens, and Checkout integration in native Android apps.
+- [Mercado Pago CLI](https://apis.io/apis/mercado-pago/cli/) — Command-line interface for managing Mercado Pago integrations: trigger test events, inspect webhook deliveries, scaffold sample apps, and run local…
+- [Mercado Pago MCP Server](https://apis.io/apis/mercado-pago/mcp/) — Model Context Protocol server exposing Mercado Pago APIs as tools for AI agents and IDE assistants. Enables agent-driven payment, preference, and checkout…
+- [Mercado Pago WooCommerce Plugin](https://apis.io/apis/mercado-pago/woocommerce/) — Official WooCommerce gateway plugin enabling Mercado Pago Checkout Pro, Bricks, and Checkout API payment methods in WordPress stores.
+- [Mercado Pago n8n Node](https://apis.io/apis/mercado-pago/n8n/) — Official n8n workflow automation node for orchestrating Mercado Pago operations alongside other SaaS apps.
+- [Mercado Pago Authentication API](https://apis.io/apis/mercado-pago/mercado-pago-authentication-api/) — OAuth 2.0 authorisation flows
+- [Mercado Pago Cards API](https://apis.io/apis/mercado-pago/mercado-pago-cards-api/) — Tokenised customer cards
+- [Mercado Pago Chargebacks API](https://apis.io/apis/mercado-pago/mercado-pago-chargebacks-api/) — Read chargebacks and disputes
+- [Mercado Pago Claims API](https://apis.io/apis/mercado-pago/mercado-pago-claims-api/) — Buyer claims, mediations, and evidence
+- [Mercado Pago Customers API](https://apis.io/apis/mercado-pago/mercado-pago-customers-api/) — Stored customers and addresses
+- [Mercado Pago Merchant Orders API](https://apis.io/apis/mercado-pago/mercado-pago-merchant-orders-api/) — Aggregated preference + payments order resource
+- [Mercado Pago Orders API](https://apis.io/apis/mercado-pago/mercado-pago-orders-api/) — Unified Orders API (next-generation checkout)
+- [Mercado Pago Payment Methods API](https://apis.io/apis/mercado-pago/mercado-pago-payment-methods-api/) — Discover available payment methods
+- [Mercado Pago Payments API](https://apis.io/apis/mercado-pago/mercado-pago-payments-api/) — Create, capture, refund, and search payments
+- [Mercado Pago Plans API](https://apis.io/apis/mercado-pago/mercado-pago-plans-api/) — Subscription plans
+- [Mercado Pago Point API](https://apis.io/apis/mercado-pago/mercado-pago-point-api/) — In-person POS (stores, terminals)
+- [Mercado Pago Preferences API](https://apis.io/apis/mercado-pago/mercado-pago-preferences-api/) — Checkout Pro preferences
+- [Mercado Pago QR API](https://apis.io/apis/mercado-pago/mercado-pago-qr-api/) — QR-code in-person collection
+- [Mercado Pago Refunds API](https://apis.io/apis/mercado-pago/mercado-pago-refunds-api/) — Refund payments
+- [Mercado Pago Reports API](https://apis.io/apis/mercado-pago/mercado-pago-reports-api/) — Settlement and release reports
+- [Mercado Pago Subscriptions API](https://apis.io/apis/mercado-pago/mercado-pago-subscriptions-api/) — Recurring preapproval subscriptions
 
-- Payments
-- Checkout
-- Subscriptions
-- POS
-- QR
-- PIX
-- SDKs
-- Wallet
-- Acquiring
-- Lending
-- Issuing
-- Latin America
-- Brazil
-- Argentina
-- Mexico
-- Chile
-- Colombia
-- Peru
-- Uruguay
-- Fintech
+### Published properties
 
-## Timestamps
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- **Created:** 2026-05-25
-- **Modified:** 2026-05-25
+#### AsyncAPI (1)
 
-## APIs
+Event-driven and webhook contracts.
 
-### Mercado Pago Payments API
+- [Mercado Pago Webhooks (IPN / Webhooks v2)](https://apis.io/asyncapis/mercado-pago/mercado-pago-asyncapi/)
 
-Core REST API for creating and managing payments across cards, account money, bank transfer (PIX in Brazil, SPEI in Mexico, PSE in Colombia), boleto, OXXO cash, and other LATAM local methods. Supports authorisation, capture, refund, partial refund, cancellation, and status retrieval.
+#### Event channels (5)
 
-- **Human URL:** [https://www.mercadopago.com.br/developers/en/reference/payments/_payments/post](https://www.mercadopago.com.br/developers/en/reference/payments/_payments/post)
-- **Base URL:** `https://api.mercadopago.com`
+Individual events and webhooks the provider emits.
 
-#### Tags
+- [/webhooks/mercadopago](https://apis.io/channels/mercado-pago/mercado-pago-webhooks-ipn-webhooks-v2-webhooks-mercadopago/)
+- [/webhooks/mercadopago](https://apis.io/channels/mercado-pago/mercado-pago-webhooks-ipn-webhooks-v2-webhooks-mercadopago-2/)
+- [/webhooks/mercadopago](https://apis.io/channels/mercado-pago/mercado-pago-webhooks-ipn-webhooks-v2-webhooks-mercadopago-3/)
+- [/webhooks/mercadopago](https://apis.io/channels/mercado-pago/mercado-pago-webhooks-ipn-webhooks-v2-webhooks-mercadopago-4/)
+- [/webhooks/mercadopago](https://apis.io/channels/mercado-pago/webhooks-mercadopago/)
 
-- Payments
-- Cards
-- PIX
-- Refunds
-- Captures
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [Documentation](https://www.mercadopago.com.br/developers/en/reference/payments/_payments/post)
-- [API Reference](https://www.mercadopago.com.br/developers/en/reference)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/mercado-pago/refs/heads/main/openapi/mercado-pago-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/mercado-pago.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mercado-pago.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Mercado Pago Agentic Access](https://apis.io/agentic-access/mercado-pago/mercado-pago-agentic-access/)
 
-### Mercado Pago Checkout Pro
+#### JSON Schema (4)
 
-Hosted, pre-configured checkout experience. Merchants create a preference via API, then redirect the buyer to a Mercado Pago hosted page that handles UI, payment-method selection, 3DS, and returns to a callback URL on completion. Lowest PCI scope and fastest time-to-market.
+The data models the API reads and writes.
 
-- **Human URL:** [https://www.mercadopago.com.br/developers/en/docs/checkout-pro/landing](https://www.mercadopago.com.br/developers/en/docs/checkout-pro/landing)
-- **Base URL:** `https://api.mercadopago.com`
+- [Mercado Pago Payment](https://apis.io/schemas/mercado-pago/mercado-pago-payment/)
+- [Mercado Pago Checkout Preference](https://apis.io/schemas/mercado-pago/mercado-pago-preference/)
+- [Mercado Pago Refund](https://apis.io/schemas/mercado-pago/mercado-pago-refund/)
+- [Mercado Pago Subscription (Preapproval)](https://apis.io/schemas/mercado-pago/mercado-pago-subscription/)
 
-#### Tags
+#### JSON Structure (2)
 
-- Checkout
-- Hosted
-- Preferences
+Data models expressed in JSON Structure.
 
-#### Properties
+- [Mercado Pago Payment Structure](https://apis.io/json-structure/mercado-pago/mercado-pago-payment-structure/)
+- [Mercado Pago Preference Structure](https://apis.io/json-structure/mercado-pago/mercado-pago-preference-structure/)
 
-- [Documentation](https://www.mercadopago.com.br/developers/en/docs/checkout-pro/landing)
-- [Postman Collection](collections/mercado-pago.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mercado-pago.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### JSON-LD (1)
 
-### Mercado Pago Checkout Bricks
+Linked-data contexts for the provider's vocabulary.
 
-Composable web components ("bricks") merchants embed in their own UI — card form, wallet, payment-method picker, status screen, security code. Lets merchants assemble a branded checkout while Mercado Pago handles PCI scope and tokenisation.
+- [Mercado Pago Context](https://apis.io/jsonld/mercado-pago/mercado-pago-context/)
 
-- **Human URL:** [https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/landing](https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/landing)
-- **Base URL:** `https://api.mercadopago.com`
+#### Vocabulary (1)
 
-#### Tags
+The provider's domain terms, defined.
 
-- Checkout
-- Web Components
-- Bricks
-- Tokenization
+- [Mercado Pago Vocabulary](https://apis.io/vocabularies/mercado-pago/mercado-pago-vocabulary/)
 
-#### Properties
+#### Examples (5)
 
-- [Documentation](https://www.mercadopago.com.br/developers/en/docs/checkout-bricks/landing)
-- [Postman Collection](collections/mercado-pago.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mercado-pago.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Example requests and responses.
 
-### Mercado Pago Checkout API
+- [Mercado Pago Create Payment Example](https://apis.io/examples/mercado-pago/mercado-pago-create-payment-example/)
+- [Mercado Pago Create Preference Example](https://apis.io/examples/mercado-pago/mercado-pago-create-preference-example/)
+- [Mercado Pago Create Subscription Example](https://apis.io/examples/mercado-pago/mercado-pago-create-subscription-example/)
+- [Mercado Pago Refund Payment Example](https://apis.io/examples/mercado-pago/mercado-pago-refund-payment-example/)
+- [Mercado Pago Webhook Payment Example](https://apis.io/examples/mercado-pago/mercado-pago-webhook-payment-example/)
 
-Full server-side checkout control. Tokenise cards client-side, create a payment server-side, manage 3DS challenges, handle capture, refund, and installments — all without redirecting the buyer.
+#### Collections (17)
 
-- **Human URL:** [https://www.mercadopago.com.br/developers/en/docs/checkout-api/landing](https://www.mercadopago.com.br/developers/en/docs/checkout-api/landing)
-- **Base URL:** `https://api.mercadopago.com`
+Postman and Open Collection request collections.
 
-#### Tags
+- [Mercado Pago REST API](https://apis.io/collections/mercado-pago/open-mercado-pago/)
+- [Mercado Pago REST Authentication API](https://apis.io/collections/mercado-pago/open-mercado-pago-authentication-api/)
+- [Mercado Pago REST Authentication Cards API](https://apis.io/collections/mercado-pago/open-mercado-pago-cards-api/)
+- [Mercado Pago REST Authentication Chargebacks API](https://apis.io/collections/mercado-pago/open-mercado-pago-chargebacks-api/)
+- [Mercado Pago REST Authentication Claims API](https://apis.io/collections/mercado-pago/open-mercado-pago-claims-api/)
+- [Mercado Pago REST Authentication Customers API](https://apis.io/collections/mercado-pago/open-mercado-pago-customers-api/)
+- [Mercado Pago REST Authentication Merchant Orders API](https://apis.io/collections/mercado-pago/open-mercado-pago-merchant-orders-api/)
+- [Mercado Pago REST Authentication Orders API](https://apis.io/collections/mercado-pago/open-mercado-pago-orders-api/)
+- [Mercado Pago REST Authentication Payment Methods API](https://apis.io/collections/mercado-pago/open-mercado-pago-payment-methods-api/)
+- [Mercado Pago REST Authentication Payments API](https://apis.io/collections/mercado-pago/open-mercado-pago-payments-api/)
+- [Mercado Pago REST Authentication Plans API](https://apis.io/collections/mercado-pago/open-mercado-pago-plans-api/)
+- [Mercado Pago REST Authentication Point API](https://apis.io/collections/mercado-pago/open-mercado-pago-point-api/)
+- [Mercado Pago REST Authentication Preferences API](https://apis.io/collections/mercado-pago/open-mercado-pago-preferences-api/)
+- [Mercado Pago REST Authentication QR API](https://apis.io/collections/mercado-pago/open-mercado-pago-qr-api/)
+- [Mercado Pago REST Authentication Refunds API](https://apis.io/collections/mercado-pago/open-mercado-pago-refunds-api/)
+- [Mercado Pago REST Authentication Reports API](https://apis.io/collections/mercado-pago/open-mercado-pago-reports-api/)
+- [Mercado Pago REST Authentication Subscriptions API](https://apis.io/collections/mercado-pago/open-mercado-pago-subscriptions-api/)
 
-- Checkout
-- Card Payments
-- 3DS
-- Installments
+#### Governance rules (4)
 
-#### Properties
+Spectral rulesets for the provider's contracts.
 
-- [Documentation](https://www.mercadopago.com.br/developers/en/docs/checkout-api/landing)
-- [Postman Collection](collections/mercado-pago.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mercado-pago.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Mercado Pago — asyncapi rules](https://apis.io/rules/mercado-pago/mercado-pago-asyncapi-spectral-rules/)
+- [Mercado Pago — jsonschema rules](https://apis.io/rules/mercado-pago/mercado-pago-jsonschema-spectral-rules/)
+- [Mercado Pago — openapi rules](https://apis.io/rules/mercado-pago/mercado-pago-openapi-spectral-rules/)
+- [Mercado Pago API Rules](https://apis.io/rules/mercado-pago/mercado-pago-rules/)
 
-### Mercado Pago Orders API
+#### Security (2)
 
-Next-generation unified Orders API consolidating payments, captures, refunds, and transactions under a single resource. Supports multi-method orders, partial captures, partial refunds, and async processing.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://www.mercadopago.com.br/developers/en/reference/order/online-payments/create/post](https://www.mercadopago.com.br/developers/en/reference/order/online-payments/create/post)
-- **Base URL:** `https://api.mercadopago.com`
+- [Mercado Pago Authentication](https://apis.io/security/mercado-pago/mercado-pago-authentication/)
+- [Mercado Pago Domain Security](https://apis.io/security/mercado-pago/mercado-pago-domain-security/)
 
-#### Tags
+#### OAuth scopes (1)
 
-- Orders
-- Payments
-- Transactions
-- Unified API
+The permissions the API asks for.
 
-#### Properties
+- [Mercado Pago Scopes](https://apis.io/scopes/mercado-pago/mercado-pago-scopes/)
 
-- [Documentation](https://www.mercadopago.com.br/developers/en/docs/checkout-api/landing)
-- [Postman Collection](collections/mercado-pago.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mercado-pago.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Plans and pricing (1)
 
-### Mercado Pago Subscriptions API
+Published plans, tiers and prices.
 
-Recurring payment subscriptions (preapproval) with scheduling, shared plans, free trial, proration, and pause / resume / cancel. Supports both subscription plans (preapproval_plan) and per-customer pre-approved schedules (preapproval).
+- [Mercado Pago Plans Pricing](https://apis.io/plans/mercado-pago/mercado-pago-plans-pricing/)
 
-- **Human URL:** [https://www.mercadopago.com.br/developers/en/docs/subscriptions/landing](https://www.mercadopago.com.br/developers/en/docs/subscriptions/landing)
-- **Base URL:** `https://api.mercadopago.com`
+#### Rate limits (1)
 
-#### Tags
+Published request limits.
 
-- Subscriptions
-- Recurring
-- Plans
-- Preapproval
+- [Mercado Pago Rate Limits](https://apis.io/rate-limits/mercado-pago/mercado-pago-rate-limits/)
 
-#### Properties
+#### FinOps (1)
 
-- [Documentation](https://www.mercadopago.com.br/developers/en/docs/subscriptions/landing)
-- [Postman Collection](collections/mercado-pago.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mercado-pago.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+What the API costs to run, by operation.
 
-### Mercado Pago Payment Links API
+- [Mercado Pago Finops](https://apis.io/finops/mercado-pago/mercado-pago-finops/)
 
-No-code / low-code link generation for collecting a one-off or recurring payment via shareable URL or button — SMS, WhatsApp, email, social.
+## Where to find this API
 
-- **Human URL:** [https://www.mercadopago.com.br/developers/en/docs/payment-link/landing](https://www.mercadopago.com.br/developers/en/docs/payment-link/landing)
-- **Base URL:** `https://api.mercadopago.com`
-
-#### Tags
-
-- Payment Links
-- Collection
-- No Code
-
-#### Properties
-
-- [Documentation](https://www.mercadopago.com.br/developers/en/docs/payment-link/landing)
-- [Postman Collection](collections/mercado-pago.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mercado-pago.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Mercado Pago Customers & Cards API
-
-Manage stored customers and tokenised cards for one-click and recurring payments. CRUD for customers, addresses, and card tokens.
-
-- **Human URL:** [https://www.mercadopago.com.br/developers/en/reference/customers/_customers/post](https://www.mercadopago.com.br/developers/en/reference/customers/_customers/post)
-- **Base URL:** `https://api.mercadopago.com`
-
-#### Tags
-
-- Customers
-- Cards
-- Tokenization
-- Vault
-
-#### Properties
-
-- [Documentation](https://www.mercadopago.com.br/developers/en/reference/customers/_customers/post)
-- [Postman Collection](collections/mercado-pago.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mercado-pago.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Mercado Pago Merchant Orders API
-
-Aggregate a preference + its payments into a single merchant_order resource for reconciliation, multi-payment handling, and order lifecycle.
-
-- **Human URL:** [https://www.mercadopago.com.br/developers/en/reference/merchant_orders/_merchant_orders/post](https://www.mercadopago.com.br/developers/en/reference/merchant_orders/_merchant_orders/post)
-- **Base URL:** `https://api.mercadopago.com`
-
-#### Tags
-
-- Orders
-- Reconciliation
-
-#### Properties
-
-- [Documentation](https://www.mercadopago.com.br/developers/en/reference/merchant_orders/_merchant_orders/post)
-- [Postman Collection](collections/mercado-pago.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mercado-pago.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Mercado Pago Point API (POS)
-
-Integrates merchant systems with Mercado Pago Point card readers for in-person payments. Push an amount to a paired terminal, manage stores, points-of-sale, and terminals, and reconcile via the same payment APIs.
-
-- **Human URL:** [https://www.mercadopago.com.br/developers/en/docs/mp-point/landing](https://www.mercadopago.com.br/developers/en/docs/mp-point/landing)
-- **Base URL:** `https://api.mercadopago.com`
-
-#### Tags
-
-- POS
-- In Person
-- Card Reader
-- Terminals
-
-#### Properties
-
-- [Documentation](https://www.mercadopago.com.br/developers/en/docs/mp-point/landing)
-- [Postman Collection](collections/mercado-pago.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mercado-pago.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Mercado Pago QR API
-
-Static and dynamic QR code APIs for in-person collection, with order-linked status retrieval and webhook callbacks. Underpins the Mercado Pago wallet QR pay flow.
-
-- **Human URL:** [https://www.mercadopago.com.br/developers/en/docs/qr-payments/landing](https://www.mercadopago.com.br/developers/en/docs/qr-payments/landing)
-- **Base URL:** `https://api.mercadopago.com`
-
-#### Tags
-
-- QR
-- In Person
-- Collections
-- Wallet
-
-#### Properties
-
-- [Documentation](https://www.mercadopago.com.br/developers/en/docs/qr-payments/landing)
-- [Postman Collection](collections/mercado-pago.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mercado-pago.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Mercado Pago Chargebacks API
-
-Retrieve and respond to chargebacks, including dispute reason codes and lifecycle states.
-
-- **Human URL:** [https://www.mercadopago.com.br/developers/en/reference/chargebacks/_chargebacks_id/get](https://www.mercadopago.com.br/developers/en/reference/chargebacks/_chargebacks_id/get)
-- **Base URL:** `https://api.mercadopago.com`
-
-#### Tags
-
-- Chargebacks
-- Disputes
-
-#### Properties
-
-- [Documentation](https://www.mercadopago.com.br/developers/en/reference/chargebacks/_chargebacks_id/get)
-- [Postman Collection](collections/mercado-pago.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mercado-pago.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Mercado Pago Claims & Disputes API
-
-Post-sale claims, mediations, evidence upload, messages, and notification retrieval for resolving buyer disputes.
-
-- **Human URL:** [https://www.mercadopago.com.br/developers/en/reference/claims/_claims_id/get](https://www.mercadopago.com.br/developers/en/reference/claims/_claims_id/get)
-- **Base URL:** `https://api.mercadopago.com`
-
-#### Tags
-
-- Claims
-- Mediation
-- Disputes
-- Post Sale
-
-#### Properties
-
-- [Documentation](https://www.mercadopago.com.br/developers/en/reference/claims/_claims_id/get)
-- [Postman Collection](collections/mercado-pago.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mercado-pago.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Mercado Pago Reports API
-
-Generate, configure, and download release / settlement / account-money reports for reconciliation and accounting.
-
-- **Human URL:** [https://www.mercadopago.com.br/developers/en/docs/your-integrations/reports/release-report](https://www.mercadopago.com.br/developers/en/docs/your-integrations/reports/release-report)
-- **Base URL:** `https://api.mercadopago.com`
-
-#### Tags
-
-- Reports
-- Settlement
-- Reconciliation
-- Accounting
-
-#### Properties
-
-- [Documentation](https://www.mercadopago.com.br/developers/en/docs/your-integrations/reports/release-report)
-- [Postman Collection](collections/mercado-pago.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mercado-pago.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Mercado Pago OAuth 2.0 API
-
-OAuth 2.0 authorisation-code flow for platform integrations: marketplaces and partners obtain delegated access tokens on behalf of merchants.
-
-- **Human URL:** [https://www.mercadopago.com.br/developers/en/docs/security/oauth/introduction](https://www.mercadopago.com.br/developers/en/docs/security/oauth/introduction)
-- **Base URL:** `https://api.mercadopago.com`
-
-#### Tags
-
-- OAuth
-- Authentication
-- Marketplace
-- Platform
-
-#### Properties
-
-- [Documentation](https://www.mercadopago.com.br/developers/en/docs/security/oauth/introduction)
-- [Postman Collection](collections/mercado-pago.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mercado-pago.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Mercado Pago Webhooks / Notifications
-
-Event-driven notifications for payments, refunds, chargebacks, subscriptions, merchant orders, and account changes. Webhooks are signed with an x-signature header so receivers can verify authenticity.
-
-- **Human URL:** [https://www.mercadopago.com.br/developers/en/docs/your-integrations/notifications/webhooks](https://www.mercadopago.com.br/developers/en/docs/your-integrations/notifications/webhooks)
-- **Base URL:** `customer-configured`
-
-#### Tags
-
-- Webhooks
-- Events
-- Notifications
-- Signed
-
-#### Properties
-
-- [Documentation](https://www.mercadopago.com.br/developers/en/docs/your-integrations/notifications/webhooks)
-- [AsyncAPI](https://raw.githubusercontent.com/api-evangelist/mercado-pago/refs/heads/main/asyncapi/mercado-pago-asyncapi.yml) — [AsyncAPI Specification](https://www.asyncapi.com/docs/reference/specification/latest)
-- [Postman Collection](collections/mercado-pago.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mercado-pago.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Mercado Pago Node.js SDK
-
-Official Node.js / TypeScript SDK wrapping the Mercado Pago REST APIs for payments, preferences, subscriptions, customers, cards, and merchant orders.
-
-- **Human URL:** [https://github.com/mercadopago/sdk-nodejs](https://github.com/mercadopago/sdk-nodejs)
-- **Base URL:** `https://github.com/mercadopago/sdk-nodejs`
-
-#### Tags
-
-- SDK
-- Node.js
-- TypeScript
-
-#### Properties
-
-- [Repository](https://github.com/mercadopago/sdk-nodejs)
-- [SDK](https://www.npmjs.com/package/mercadopago)
-- [Postman Collection](collections/mercado-pago.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mercado-pago.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Mercado Pago Python SDK
-
-Official Python SDK wrapping the Mercado Pago REST APIs.
-
-- **Human URL:** [https://github.com/mercadopago/sdk-python](https://github.com/mercadopago/sdk-python)
-- **Base URL:** `https://github.com/mercadopago/sdk-python`
-
-#### Tags
-
-- SDK
-- Python
-
-#### Properties
-
-- [Repository](https://github.com/mercadopago/sdk-python)
-- [SDK](https://pypi.org/project/mercadopago/)
-- [Postman Collection](collections/mercado-pago.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mercado-pago.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Mercado Pago PHP SDK
-
-Official PHP SDK wrapping the Mercado Pago REST APIs. Used by the WooCommerce plugin and most LATAM PHP merchant stacks.
-
-- **Human URL:** [https://github.com/mercadopago/sdk-php](https://github.com/mercadopago/sdk-php)
-- **Base URL:** `https://github.com/mercadopago/sdk-php`
-
-#### Tags
-
-- SDK
-- PHP
-
-#### Properties
-
-- [Repository](https://github.com/mercadopago/sdk-php)
-- [SDK](https://packagist.org/packages/mercadopago/dx-php)
-- [Postman Collection](collections/mercado-pago.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mercado-pago.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Mercado Pago Ruby SDK
-
-Official Ruby SDK wrapping the Mercado Pago REST APIs.
-
-- **Human URL:** [https://github.com/mercadopago/sdk-ruby](https://github.com/mercadopago/sdk-ruby)
-- **Base URL:** `https://github.com/mercadopago/sdk-ruby`
-
-#### Tags
-
-- SDK
-- Ruby
-
-#### Properties
-
-- [Repository](https://github.com/mercadopago/sdk-ruby)
-- [SDK](https://rubygems.org/gems/mercadopago-sdk)
-- [Postman Collection](collections/mercado-pago.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mercado-pago.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Mercado Pago Java SDK
-
-Official Java SDK wrapping the Mercado Pago REST APIs.
-
-- **Human URL:** [https://github.com/mercadopago/sdk-java](https://github.com/mercadopago/sdk-java)
-- **Base URL:** `https://github.com/mercadopago/sdk-java`
-
-#### Tags
-
-- SDK
-- Java
-
-#### Properties
-
-- [Repository](https://github.com/mercadopago/sdk-java)
-- [Postman Collection](collections/mercado-pago.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mercado-pago.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Mercado Pago .NET SDK
-
-Official .NET / C# SDK wrapping the Mercado Pago REST APIs.
-
-- **Human URL:** [https://github.com/mercadopago/sdk-dotnet](https://github.com/mercadopago/sdk-dotnet)
-- **Base URL:** `https://github.com/mercadopago/sdk-dotnet`
-
-#### Tags
-
-- SDK
-- .NET
-- C#
-
-#### Properties
-
-- [Repository](https://github.com/mercadopago/sdk-dotnet)
-- [SDK](https://www.nuget.org/packages/mercadopago-sdk)
-- [Postman Collection](collections/mercado-pago.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mercado-pago.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Mercado Pago Go SDK
-
-Official Go SDK for the Mercado Pago REST APIs.
-
-- **Human URL:** [https://github.com/mercadopago/sdk-go](https://github.com/mercadopago/sdk-go)
-- **Base URL:** `https://github.com/mercadopago/sdk-go`
-
-#### Tags
-
-- SDK
-- Go
-
-#### Properties
-
-- [Repository](https://github.com/mercadopago/sdk-go)
-- [Postman Collection](collections/mercado-pago.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mercado-pago.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Mercado Pago iOS SDK
-
-Official iOS / Swift mobile SDK providing card tokenisation, hosted payment screens, and Checkout integration for native iOS apps.
-
-- **Human URL:** [https://github.com/mercadopago/sdk-ios](https://github.com/mercadopago/sdk-ios)
-- **Base URL:** `https://github.com/mercadopago/sdk-ios`
-
-#### Tags
-
-- SDK
-- iOS
-- Mobile
-- Swift
-
-#### Properties
-
-- [Repository](https://github.com/mercadopago/sdk-ios)
-- [Postman Collection](collections/mercado-pago.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mercado-pago.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Mercado Pago Android SDK
-
-Official Android / Kotlin mobile SDK for tokenisation, payment screens, and Checkout integration in native Android apps.
-
-- **Human URL:** [https://github.com/mercadopago/sdk-android](https://github.com/mercadopago/sdk-android)
-- **Base URL:** `https://github.com/mercadopago/sdk-android`
-
-#### Tags
-
-- SDK
-- Android
-- Mobile
-- Kotlin
-
-#### Properties
-
-- [Repository](https://github.com/mercadopago/sdk-android)
-- [Postman Collection](collections/mercado-pago.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mercado-pago.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Mercado Pago CLI
-
-Command-line interface for managing Mercado Pago integrations: trigger test events, inspect webhook deliveries, scaffold sample apps, and run local listeners. Distributed via a Homebrew tap.
-
-- **Human URL:** [https://www.mercadopago.com.br/developers/en/docs/cli/landing](https://www.mercadopago.com.br/developers/en/docs/cli/landing)
-- **Base URL:** `https://www.mercadopago.com.br/developers/en/docs/cli/landing`
-
-#### Tags
-
-- CLI
-- Tooling
-- DevEx
-
-#### Properties
-
-- [Documentation](https://www.mercadopago.com.br/developers/en/docs/cli/landing)
-- [Repository](https://github.com/mercadopago/homebrew-tap)
-- [Postman Collection](collections/mercado-pago.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mercado-pago.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Mercado Pago MCP Server
-
-Model Context Protocol server exposing Mercado Pago APIs as tools for AI agents and IDE assistants. Enables agent-driven payment, preference, and checkout workflows from Anthropic, OpenAI, and other MCP-compatible hosts.
-
-- **Human URL:** [https://www.mercadopago.com.br/developers/en/docs/mcp-server/landing](https://www.mercadopago.com.br/developers/en/docs/mcp-server/landing)
-- **Base URL:** `https://www.mercadopago.com.br/developers/en/docs/mcp-server/landing`
-
-#### Tags
-
-- MCP
-- AI
-- Agents
-- Anthropic
-
-#### Properties
-
-- [Documentation](https://www.mercadopago.com.br/developers/en/docs/mcp-server/landing)
-- [Postman Collection](collections/mercado-pago.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mercado-pago.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Mercado Pago WooCommerce Plugin
-
-Official WooCommerce gateway plugin enabling Mercado Pago Checkout Pro, Bricks, and Checkout API payment methods in WordPress stores.
-
-- **Human URL:** [https://github.com/mercadopago/cart-woocommerce](https://github.com/mercadopago/cart-woocommerce)
-- **Base URL:** `https://github.com/mercadopago/cart-woocommerce`
-
-#### Tags
-
-- Plugin
-- WooCommerce
-- WordPress
-- E-commerce
-
-#### Properties
-
-- [Repository](https://github.com/mercadopago/cart-woocommerce)
-- [Plugin](https://wordpress.org/plugins/woocommerce-mercadopago/)
-- [Postman Collection](collections/mercado-pago.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mercado-pago.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Mercado Pago n8n Node
-
-Official n8n workflow automation node for orchestrating Mercado Pago operations alongside other SaaS apps.
-
-- **Human URL:** [https://github.com/mercadopago/n8n-nodes-mercadopago](https://github.com/mercadopago/n8n-nodes-mercadopago)
-- **Base URL:** `https://github.com/mercadopago/n8n-nodes-mercadopago`
-
-#### Tags
-
-- n8n
-- Workflow
-- Automation
-- Integration
-
-#### Properties
-
-- [Repository](https://github.com/mercadopago/n8n-nodes-mercadopago)
-- [Postman Collection](collections/mercado-pago.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mercado-pago.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.mercadopago.com/)
-- [Developers](https://www.mercadopago.com.br/developers/en)
 - [Documentation](https://www.mercadopago.com.br/developers/en/docs)
-- [API Reference](https://www.mercadopago.com.br/developers/en/reference)
-- [Getting Started](https://www.mercadopago.com.br/developers/en/docs/your-integrations/credentials)
-- [Status](https://status.mercadopago.com)
-- [LinkedIn](https://www.linkedin.com/company/mercadopago)
-- [GitHub Organization](https://github.com/mercadopago)
-- [Homebrew Tap](https://github.com/mercadopago/homebrew-tap)
-- [Discord](https://discord.com/invite/mercadopagodevelopers)
-- [Plans](https://raw.githubusercontent.com/api-evangelist/mercado-pago/refs/heads/main/plans/mercado-pago-plans-pricing.yml)
-- [Rate Limits](https://raw.githubusercontent.com/api-evangelist/mercado-pago/refs/heads/main/rate-limits/mercado-pago-rate-limits.yml)
-- [Fin Ops](https://raw.githubusercontent.com/api-evangelist/mercado-pago/refs/heads/main/finops/mercado-pago-finops.yml)
-- [Vocabulary](https://raw.githubusercontent.com/api-evangelist/mercado-pago/refs/heads/main/vocabulary/mercado-pago-vocabulary.yml)
-- [JSON-LD](https://raw.githubusercontent.com/api-evangelist/mercado-pago/refs/heads/main/json-ld/mercado-pago-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Spectral Ruleset](https://raw.githubusercontent.com/api-evangelist/mercado-pago/refs/heads/main/rules/mercado-pago-rules.yml)
+- [Getting started](https://www.mercadopago.com.br/developers/en/docs/your-integrations/credentials)
+- [API reference](https://www.mercadopago.com.br/developers/en/reference)
+- [Blog](https://www.mercadopago.com.ar/developers/en/news)
+- [GitHub](https://github.com/mercadopago)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** API Evangelist
-**URL:** https://apievangelist.com
+**Kin Score 41.8** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 60.7 |
+| Contract quality | 58.0 |
+| Contract governance | 27.3 |
+| Operational transparency | 26.3 |
+| Developer ergonomics | 54.8 |
+| Access clarity | 5.3 |
+
+**Agent readiness 25.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | derived (partial credit) |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 24.1** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/mercado-pago/](https://apis.io/providers/mercado-pago/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Mercado Pago: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/mercado-pago/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
